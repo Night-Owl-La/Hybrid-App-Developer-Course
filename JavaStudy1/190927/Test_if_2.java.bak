@@ -1,0 +1,28 @@
+import java.util.*;
+class Test_if_2
+{
+	public static void main(String[] args) 
+	{
+		Calendar cal = Calendar.getInstance();
+		int year = 1994;
+		int age = cal.get(Calendar.YEAR)-year;
+		String tti;
+
+		switch(year%12){
+			case 0: tti="¿ø¼şÀÌ"; break;
+			case 1: tti="´ß"; break;
+			case 2: tti="°³"; break;
+			case 3: tti="µÅ"; break;
+			case 4: tti="Áã"; break;
+			case 5: tti="¼Ò"; break;
+			case 6: tti="È£¶ûÀÌ"; break;
+			case 7: tti="Åä³¢"; break;
+			case 8: tti="¿ë"; break;
+			case 9: tti="¹ì"; break;
+			case 10: tti="¸»"; break;
+			case 11: tti="¸»"; break;
+			default: tti="FALSE"; break;
+		}
+		System.out.println("³ªÀÌ : " + (age+1) + "¼¼ \n" + tti + "¶ì" );
+	}
+} // Test_if_2 CLOSE

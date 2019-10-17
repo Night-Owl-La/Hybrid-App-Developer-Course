@@ -1,0 +1,25 @@
+import java.util.*;
+class Test_3
+{
+	public static void main(String[] args) 
+	{
+		Scanner scan = new Scanner(System.in);
+		System.out.println("구구단을 알고 싶은 수를 2~9사이로 입력하세요.");
+		int dan = scan.nextInt();
+
+
+
+		if(dan<2 || dan>9) {
+			System.out.println("2~9사이로 입력하세요.");
+			return;
+		}
+
+
+
+
+		for(int i=1; i<=9; i++)
+			System.out.println(dan+"*"+i+"="+(dan*i));
+		
+
+	} // main end
+} // Test_3 end

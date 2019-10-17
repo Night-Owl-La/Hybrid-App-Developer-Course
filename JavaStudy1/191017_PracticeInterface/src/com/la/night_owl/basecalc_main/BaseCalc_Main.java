@@ -1,6 +1,6 @@
-package com.la.night_owl.practice_interface_main;
+package com.la.night_owl.basecalc_main;
 
-import com.la.night_owl.practice_interface.BaseCalc_Impl;
+import com.la.night_owl.basecalc.BaseCalc_Impl;
 
 public class BaseCalc_Main {
 

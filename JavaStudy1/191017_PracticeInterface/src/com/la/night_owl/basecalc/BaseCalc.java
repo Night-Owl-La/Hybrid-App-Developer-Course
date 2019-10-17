@@ -1,4 +1,4 @@
-package com.la.night_owl.practice_interface;
+package com.la.night_owl.basecalc;
 
 public interface BaseCalc {
 	double PI = 3.14;

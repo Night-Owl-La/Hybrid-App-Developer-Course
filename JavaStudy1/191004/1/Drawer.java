@@ -1,0 +1,66 @@
+// overloading test
+import java.util.*;
+class Drawer implements Draw_Interface // 그리기 클래스.
+{
+	// -------- Field -------- //
+	Scanner scan = new Scanner(System.in);
+
+	// -------- Method -------- //
+	// ---------------  출력하기 ---------------  //
+	public void _drawLine(String a){
+		System.out.print(a);
+		}  // 구분선 그리기
+
+	public void _drawLine(int length, String a){
+		for (int i=0; i<length; i++)
+			_drawLine(a);
+		System.out.println();
+	}
+	
+	public void _drawLine(int length, String a, int count){
+		for (int i=0; i<count; i++)
+			_drawLine(length, a);
+	}
+	
+	public void _drawResult(int result){ System.out.print(result+"\t"); } // 연산결과 출력.
+
+
+
+
+	// --------------  입력받기 --------------- //
+	public int _pushCategory_Number(){
+		System.out.println("카테고리 개수 입력 : ");
+		int n=scan.nextInt(); 	
+		return n;
+	}
+
+	public String _pushLine_kind(){
+		String t_1 = "-----";
+		String t_2 = "*----";
+		String t_3 = "**---";
+		String selected_Line = null;
+
+		System.out.println("구분선 종류 설정.");
+		System.out.println("1. "+t_1);
+		System.out.println("2. "+t_2);
+		System.out.println("3. "+t_3);
+		int select = scan.nextInt();
+
+		switch(select){
+			case 1: selected_Line = t_1; break;
+			case 2: selected_Line = t_2; break;
+			case 3: selected_Line = t_3; break;
+			default:
+		}
+		return selected_Line;
+	} // _pushLine_kind end.
+
+	public int _pushRow_Number(){
+		System.out.println("행 개수 입력.");
+		int row = scan.nextInt();
+		return row;
+	}
+
+
+} // class end. ~
+

@@ -1,6 +1,7 @@
 package com.la.night_owl.L_multi_server;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -13,18 +14,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class MultiServer extends JFrame {
+public class MultiServer_UI extends JFrame {
 	
 	private JTextArea		jta_Monitor;
 	private JTextField		jtf_UserCount;
 	private JList<String>	jlist_UserList;
 	
-	private ServerSocket_1 s_Socket;
+	private ServerSocket_1 	s_Socket;
 	
 	private Font font = new Font("맑은 고딕", Font.BOLD, 20);
 	
 	
-	public MultiServer() {
+	public MultiServer_UI() {
 		super("title");
 		this.setLocation(300, 300);
 		this.setVisible(true);
@@ -83,6 +84,14 @@ public class MultiServer extends JFrame {
 		jlist_UserList = new JList<String>();
 		JScrollPane jScrollPane = new JScrollPane(jlist_UserList);
 		jScrollPane.setPreferredSize(new Dimension(120, 0));
+		new Thread() {
+			public void run() {
+				System.out.println("INIT-JLIST-USERLIST-THREAD START"); // TODO DELETE.
+				while(true) {
+					display_UserList();
+				}
+ 			};
+		}.start();
 		
 		this.add(jScrollPane, BorderLayout.EAST);
 	}
@@ -100,6 +109,11 @@ public class MultiServer extends JFrame {
 		jtf_UserCount.setText(String.valueOf(userCount));
 	}
 
+	private void display_UserList() {
+		String[] user_array = new String[s_Socket.getUser_List().size()];
+		s_Socket.getUser_List().toArray(user_array);
+		jlist_UserList.setListData(user_array);
+	}
 	
 	
 }

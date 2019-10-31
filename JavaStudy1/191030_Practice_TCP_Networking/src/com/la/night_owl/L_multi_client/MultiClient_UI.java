@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 
 import com.la.night_owl.connect_interface.Connect_Interface;
 
-public class MultiClient extends JFrame {
+public class MultiClient_UI extends JFrame {
 
 	private JTextArea		jta_Monitor;
 	private JTextField		jtf_Message;
@@ -27,9 +27,12 @@ public class MultiClient extends JFrame {
 	private JList<String>	jlist_UserList;
 	boolean					bConnect = false;
 	
+	private ClientSocket_1 	client;
+	
 	private Font font = new Font("맑은 고딕", Font.BOLD, 20);
 	
-	public MultiClient() {
+	
+	public MultiClient_UI() {
 		super("title");
 		this.setSize(300, 300);
 		this.setVisible(true);
@@ -56,6 +59,11 @@ public class MultiClient extends JFrame {
 		jlist_UserList = new JList<String>();
 		JScrollPane jScrollPane = new JScrollPane(jlist_UserList);
 		jScrollPane.setPreferredSize(new Dimension(120, 0));
+		new Thread() {
+			public void run() {
+//				display_UserList();
+			};
+		}.start();
 		
 		this.add(jScrollPane, BorderLayout.EAST);
 	}
@@ -81,28 +89,21 @@ public class MultiClient extends JFrame {
 		
 		this.add(jPanel,BorderLayout.SOUTH);
 	}
+	private void display_UserList() {
+		String[] user_array = new String[client.getUser_List().size()];
+		client.getUser_List().toArray(user_array);
+		jlist_UserList.setListData(user_array);
+	}
 	
 	
-	Socket client; // TODO DELETE SOCKET
 	protected void on_Jbt_Connect() {
 		bConnect = !bConnect;
 		
 		if(bConnect) {
-			try {
-				client=new Socket("localhost", Connect_Interface.PORT_NUMBER);
-			} catch (IOException e) {
-				
-			}
+			try { client= new ClientSocket_1(); } catch (Exception e) {}
 		}else {
-			try {
-				client.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			try { client.close_Client(); } catch (Exception e) {}
 		}
-		
-		
 		jbt_Connect.setText(bConnect ? "연결끊기" : "연결");
 	}
 	

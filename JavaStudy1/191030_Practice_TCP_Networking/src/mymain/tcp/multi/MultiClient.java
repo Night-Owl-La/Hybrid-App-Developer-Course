@@ -42,7 +42,7 @@ public class MultiClient extends JFrame {
 	JList<String> jlist_User_List;
 	
 	JButton       jbt_Connect;
-	boolean       bConnect = false;//현재 연결상태
+	boolean       bConnect = false; //현재 연결상태
 	
 	Font font = new Font("굴림체", Font.BOLD , 18);
 	

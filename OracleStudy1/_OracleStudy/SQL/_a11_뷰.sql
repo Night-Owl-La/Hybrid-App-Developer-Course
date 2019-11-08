@@ -61,3 +61,13 @@ AS
 	ORDER BY AGE;
 	
 SELECT * FROM T_GOGEK_VIEW_2;
+
+-- [system 계정으로 전환] 추가 계정 생성
+
+CREATE USER TEST1 IDENTIFIED BY TEST1;
+GRANT CONNECT TO TEST1;
+
+-- [test 계정으로 전환]
+grant select on t_gogek_view_2 to test1;
+
+SELECT * FROM TEST.T_GOGEK_VIEW_2;

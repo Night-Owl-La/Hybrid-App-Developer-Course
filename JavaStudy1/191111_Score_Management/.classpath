@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="D:/학생방/Hybrid App Developer Course/OracleStudy1/Oracle Driver/ojdbc14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

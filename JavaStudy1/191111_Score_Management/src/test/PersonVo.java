@@ -1,4 +1,4 @@
-package com.la.night_owl.score_management;
+package test;
 
 public class PersonVo {
 	int number;

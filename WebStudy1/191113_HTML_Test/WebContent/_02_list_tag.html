@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div id="d1">
+		<hr>
+		Ordered List.
+		<hr>
+		<ol>
+			<li>하나</li>
+			<li>둘</li>
+			<li>셋</li>
+			<li>넷</li>
+		</ol>
+	</div>
+
+	<hr>
+	Unordered List.
+	<hr>
+	<ul style="list-style: upper-roman;">
+		<li>사과</li>
+		<li>참외</li>
+		<li>수박</li>
+		<li>복숭아</li>
+		<li>포도</li>
+	</ul>
+
+	<hr>
+	Dictionary List.
+	<hr>
+
+	<dl>
+		<dt>HTML이란?</dt>
+		<dd>Hyper Text Markup Language로 tag를 사용하여 Data를 표현하는 언어.</dd>
+
+		<dt>CSS란?</dt>
+		<dd>Cascade Style Sheet로 Data의 모양(state)를 표현하는 언어.</dd>
+
+		<dt>Java script란?</dt>
+		<dd>
+			Browser control language, 각종 이벤트 처리 및 동적으로 각 요소를 제어할 수 있는 언어. <br>
+			<input type="button" value="제목변경" onclick="document.title='제목변경!'">
+			<input type="button" value="<ol>숨기기" onclick="document.getElementById('d1').style.display='none';">
+			<input type="button" value="<ol>보이기" onclick="document.getElementById('d1').style.display='block';">
+			<input type="button" value="창닫기" onclick="self.close();">
+		</dd>
+	</dl>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="member_reg.do">
+		<table border="1" width="500">
+			<tr>
+				<th colspan="1" align="left">NAME:</th>
+				<td><input name="name"></td>
+			</tr>
+
+			<tr>
+				<th align="left">ID:</th>
+				<td><input name="id"></td>
+			</tr>
+
+			<tr>
+				<th colspan="1" align="left">Password:</th>
+				<td><input type="password" name="password" placeholder="6~8자리 영숫자 조합"></td>
+			</tr>
+
+			<tr>
+				<th colspan="1" align="left">Sex:</th>
+				<td>
+					<input type="radio" name="gender" value="남자" checked="checked"> 남자 
+					<input type="radio" name="gender" value="여자">여자
+				</td>
+			</tr>
+
+			<tr>
+				<th colspan="1" align="left">Hobby:</th>
+				<td>
+					<input type="checkbox" name="hobby" value="독서">독서 
+					<input type="checkbox" name="hobby" value="낚시">낚시 
+					<input type="checkbox" name="hobby" value="운동">운동 
+					<input type="checkbox" name="hobby" value="영화">영화
+				</td>
+			</tr>
+
+			<tr>
+				<th align="left">Blood Type:</th>
+				<td>
+					<select name="blood">
+						<option value="A">A형</option>
+						<option value="B">B형</option>
+						<option value="O">O형</option>
+						<option value="AB">AB형</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<th>자기소개</th>
+				<td>
+					<textarea name="profile" rows="5" cols="50"></textarea>
+				</td>
+			</tr>
+
+			<tr>
+				<th>파일첨부</th>
+				<td><input type="file" name="photo"></td>
+			</tr>
+
+			<tr>
+				<th>버튼1</th>
+				<td>
+					<input type="button" value="send" onclick="this.form.submit();"> 
+					<input type="button" value="reset" onclick="this.form.reset();">
+				</td>
+			</tr>
+
+			<tr>
+				<th>버튼2</th>
+				<td>
+					<input type="submit" value="전송"> <input type="reset" value="입력취소">
+				</td>
+			</tr>
+			
+		</table>
+	</form>
+
+</body>
+</html>

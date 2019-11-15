@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+div#disp{ 
+	width: 200px;
+	height: 100px;
+	background-color: aqua;
+	
+	margin-top: 20px;
+	margin-bottom: 20px;
+}

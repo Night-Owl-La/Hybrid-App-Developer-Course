@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+ul#main_menu {
+	list-style: none;
+}
+
+ul#main_menu>li {
+	display: inline-block;
+	width: 150px;
+	margin-right: 20px;
+}
+
+ul#main_menu>li>a {
+	display: block;
+	width: 150px;
+	border: 1px solid green;
+	text-align: center;
+	text-decoration: none;
+	color: navy;
+}
+
+ul#main_menu>li>a:hover {
+	border: 1px solid red;
+	color: aqua;
+	
+}

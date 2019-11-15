@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../CSS/myCSS.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<style type="text/css">
+p {
+	border: 1px dotted blue;
+}
+
+p#p1 {
+	color: blue;
+	font-family: 맑은고딕, 궁서체, 굴림체;
+}
+
+div#p1 {
+	color: maroon;
+	font-family: fantasy;
+	font-weight: bold;
+}
+
+.box_style {
+	width: 200px;
+	height: 50px;
+	border: 1px solid aqua;
+	box-shadow: 2px 2px 2px black
+}
+</style>
+</head>
+<body>
+	<!-- 1. inline -->
+	<p style="color: red; font-size: 24pt; border: none;">
+	inline pattern</p>
+	<!-- 2. id selector. -->
+	<p id="p1">id=p1인 p tag 속성</p>
+	<div id="p1">id=p1인 div tag 속성</div>
+
+	<!-- 3. class selector -->
+	<p class="box_style">p box</p>
+	<div class="box_style">div box</div>
+	
+	<!-- 외부파일 링크 -->
+	<div id="disp"></div>
+
+	<table class="table table-bordered">
+		<tr class="info">
+			<th>이름</th>
+			<th>주소</th>
+			<th>전화번호</th>
+		</tr>
+
+		<tr class="success">
+			<td>일길동</td>
+			<td>서울 마포 노고산동</td>
+			<td>010-1111-1111</td>
+		</tr>
+		<tr class="danger">
+			<td>이길동</td>
+			<td>서울 마포 노고산동</td>
+			<td>010-1111-1111</td>
+		</tr>
+	</table>
+</body>
+</html>

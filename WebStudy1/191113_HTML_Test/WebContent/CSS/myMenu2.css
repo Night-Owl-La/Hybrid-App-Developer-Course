@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.submenu_style {
+	list-style: none;
+}
+
+.submenu_style>li {
+	margin-top: 20px;
+}
+
+.submenu_style>li>a {
+	display: block;
+	border: 1px solid black;
+	width: 120px;
+	text-align: center;
+	text-decoration: none;
+	color: navy;
+	font: 30px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px black;
+	box-shadow: 1px 1px 1px black;
+}
+
+.submenu_style>li>a:hover {
+	color: lime;
+	border: 1px solid red;
+	box-shadow: none;
+}

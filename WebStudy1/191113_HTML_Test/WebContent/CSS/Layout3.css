@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+* {
+	
+}
+
+div#main_box {
+	margin: auto;
+	width: 500px;
+	height: 500px;
+	background-color: gray;
+	outline: black 2px solid;
+}
+
+div#header {
+	height: 20%;
+	background-color: #8080ff;
+	outline: black 2px solid;
+	margin-bottom: 2px;
+}
+
+div#aside {
+	width: 30%;
+	height: 60%;
+	background: #ffff80;
+	float: left;
+}
+
+div#contents {
+	width: 70%;
+	height: 60%;
+	background-color: silver;
+	float: left;
+	margin-bottom: 2px;
+}
+
+.table_property {
+	width: 50%;
+	height: 50%;
+	float: left;
+	background-color: white;
+	outline: black 2px solid;
+}
+
+div#footer {
+	height: 20%;
+	background-color: #0080ff;
+	clear: both;
+	outline: black 2px solid;
+}

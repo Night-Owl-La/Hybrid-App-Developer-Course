@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	document.write('<hr>');
+
+	// 일반 논리 연산자.
+	document.write('<h1>일반 논리 연산자</h1>');
+	var a = 10, b = 3;
+	document.write(a + '+' + b + '=' + (a + b) + '<br>');
+	document.write(a + '-' + b + '=' + (a - b) + '<br>');
+	document.write(a + '*' + b + '=' + (a * b) + '<br>');
+	document.write(a + '/' + b + '=' + (a / b) + '<br>');
+	document.write(a + '%' + b + '=' + (a % b) + '<br>');
+	document.write(Math.floor(10.1) + ' / ' + Math.ceil(10.1) + '<br>');
+	document.write('<hr>');
+
+	// 3항 연산자.
+	document.write('<h1>3항 연산자</h1>');
+	var n = 10;
+	document.write('10은 ' + (n < 0 ? '음수' : '양수'));
+	document.write('<hr>');
+
+	// For 문.
+	document.write('<h1>For문</h1>');
+	var sum = 0;
+	for (var i = 0; i <= 10; i++) {
+		document.write(i + ' ');
+		sum += i;
+	}
+	document.write('<br> sum = ' + sum + '<br>');
+	document.write('<hr>');
+
+	// 구구단 테스트.
+	/* var dan;
+	while(true){
+		dan = window.prompt('단을 입력하세요.');
+		if (dan<2 || dan > 9) {
+			alert('2~9사이의 숫자만 입력하세요.');
+			continue;
+		}
+		break;
+	}
+	var str = "<table border='1' width='300'";
+	for (var i = 0; i <= 9; i++) {
+		var gugudan = dan+ 'x'+ i + '=' + dan*i;
+		str += '<tr><td>'+gugudan+'</td></tr>';
+	}
+	str += '</table>';
+	document.write(str); */
+
+	document.write('<h1>구구단 2~9</h1>');
+	var str = "<table border='1'";
+	str += '<tr>';
+	for (var $dan = 2; $dan <= 9; $dan++) {
+		str += '<th>' + $dan + '단</th>';
+	}
+	str += '</tr>';
+
+	for (var $dan = 1; $dan <= 9; $dan++) {
+		str += '<tr>';
+		for (var $multiplier = 2; $multiplier <= 9; $multiplier++) {
+			str += '<td>' + $multiplier + 'x' + $dan + '=' + $multiplier * $dan + '</td>';
+		}
+		str += '</tr>';
+	}
+	document.write(str);
+</script>
+</head>
+<body>
+
+</body>
+</html>

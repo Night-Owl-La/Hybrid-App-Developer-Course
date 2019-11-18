@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style type="text/css">
+    div#disp {
+      border: 10px double #4fcf95;
+      width: 600px;
+      height: 180px;
+      background-color: black;
+      color: white;
+      font-size: 150px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript">
+    setInterval("time_display();", 500);
+    var bColor = false;
+
+    function time_display() {
+      var today = new Date();
+      var hour = (today.getHours() < 10) ? '0' + today.getHours() : today.getHours();
+      var minute = (today.getMinutes() < 10) ? '0' + today.getMinutes() : today.getMinutes();
+      var second = (today.getSeconds() < 10) ? '0' + today.getSeconds() : today.getSeconds();
+
+      var time = hour + ':' + minute + ':' + second;
+      bColor = !bColor;
+
+      document.getElementById("disp").style.color = (bColor) ? '#00a551' : 'white';
+      document.getElementById("disp").innerHTML = time;
+    }
+  </script>
+</head>
+
+<body>
+  <div id="disp">
+    00:00:00
+  </div>
+</body>
+
+</html>

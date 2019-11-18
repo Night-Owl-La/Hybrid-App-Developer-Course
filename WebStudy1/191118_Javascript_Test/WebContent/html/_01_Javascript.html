@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="../js/my_JS.js"></script>
+<script type="text/javascript">
+	function greet_china() {
+		alert('Hoeee');
+	}
+</script>
+
+</head>
+<body>
+	
+	<div>
+		<hr>
+		<h1>inline</h1>		
+		<hr>
+		<!-- inline 사용 -->
+		<input type="button" value="KOR 인사말" onclick="javascript:window.alert('안녕하세요');">
+		<input type="button" value="ENG 인사말" onclick="alert('Hi');">
+		
+		<hr>
+		<h1>함수 사용</h1>		
+		<hr>
+		<!-- 함수 사용 -->
+		<input type="button" value="CHI 인사말" onclick="greet_china();">
+		
+		<hr>
+		<h1>외부 라이브러리</h1>		
+		<hr>
+		<!-- 외부 라이브러리 사용 -->
+		<input type="button" value="GER 인사말" onclick="greet_german();">
+		
+	</div>
+	
+</body>
+</html>

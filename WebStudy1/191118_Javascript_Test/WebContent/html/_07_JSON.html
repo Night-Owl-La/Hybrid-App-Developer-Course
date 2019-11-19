@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <script type="text/javascript">
+    var sido_array = ['서울', '경기', '인천', '대전'];
+    document.write("sido_array's length=" + sido_array.length + "<br>");
+
+    for (var i = 0; i < sido_array.length; i++) {
+      document.write(sido_array[i] + " ");
+    }
+
+    document.write("<hr>");
+
+    var fruit_array = new Array();
+    fruit_array[0] = 'apple';
+    fruit_array[1] = 'banana';
+    fruit_array[2] = 'c';
+    fruit_array[3] = 'd';
+    fruit_array[4] = 'e';
+
+    for (var i = 0; i < fruit_array.length; i++) {
+      document.write(fruit_array[i] + " ");
+    }
+
+    document.write("<hr>");
+
+    //JSON 표기법.
+
+    document.write("<h1>Json 사용.</h1>");
+
+    var p = {
+      name: "hong",
+      age: 20
+    }
+
+    document.write(p.name + " : " + p.age);
+
+    document.write("<br><br>");
+
+    var p_array = [{
+        name: "일길동",
+        age: 21
+      },
+      {
+        name: "이길동",
+        age: 30
+      },
+      {
+        name: "삼길동",
+        age: 45
+      }
+    ];
+
+    for (var i = 0; i < p_array.length; i++) {
+      document.write(p_array[i].name + " : " + p_array[i].age + "<br>");
+    }
+  </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

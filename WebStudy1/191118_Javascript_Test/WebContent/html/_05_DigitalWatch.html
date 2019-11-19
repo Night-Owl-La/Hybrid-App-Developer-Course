@@ -15,6 +15,18 @@
       font-weight: bold;
       text-align: center;
     }
+
+    div#disp2>div {
+      border: 10px double #4fcf95;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+    }
   </style>
   <script type="text/javascript">
     setInterval("time_display();", 500);
@@ -31,13 +43,25 @@
 
       document.getElementById("disp").style.color = (bColor) ? '#00a551' : 'white';
       document.getElementById("disp").innerHTML = time;
+
+      document.getElementById("colon1").style.color = (bColor) ? 'aqua' : 'white';
+      document.getElementById("colon2").style.color = (bColor) ? 'aqua' : 'white';
+      document.getElementById("h").innerHTML = hour;
+      document.getElementById("m").innerHTML = minute;
+      document.getElementById("s").innerHTML = second;
     }
   </script>
 </head>
 
 <body>
-  <div id="disp">
-    00:00:00
+  <div id="disp">00:00:00</div>
+
+  <div id="disp2" style="margin-top: 20px">
+    <div id="h"></div>
+    <div id="colon1">:</div>
+    <div id="m"></div>
+    <div id="colon2">:</div>
+    <div id="s"></div>
   </div>
 </body>
 

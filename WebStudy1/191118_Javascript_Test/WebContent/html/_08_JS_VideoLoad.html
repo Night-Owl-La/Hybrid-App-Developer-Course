@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <script type="text/javascript">
+    function play_music() {
+      var ms = document.getElementById("music_select");
+      var pm = document.getElementById("video_1");
+      pm.src = ms.options[ms.selectedIndex].value;
+      pm.play();
+
+      var p1 = document.getElementById("test1");
+      p1.innerHTML = pm.src;
+    }
+  </script>
+
+</head>
+
+<style>
+  h1 {
+    color: blue;
+  }
+</style>
+
+<body>
+  곡선택
+  <select id="music_select" onchange="play_music();">
+    <option>:::재생할 곡 선택:::</option>
+    <option value="../mp4/RHCP-WET_SAND.mp4">Wet_Sand</option>
+    <option value="../mp4/RHCP-CANT_STOP.mp4">Can't_Stop</option>
+    <option value="../mp4/RHCP-COFFEE_SHOP.mp4">Coffee_shop</option>
+  </select>
+
+  <h1> 선택 메뉴 </h1>
+  <hr>
+
+  <video id="video_1" src="" controls="controls" width="400" height="300">
+  </video>
+  <p id="test1">1<p>
+
+</body>
+
+</html>

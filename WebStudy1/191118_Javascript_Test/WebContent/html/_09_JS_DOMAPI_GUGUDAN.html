@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    var leguar_dan = /^[2-9]{1}$/;
+
+    function showGugudan() {
+      var dan = document.getElementById("dan");
+      var dan_Number = dan.value;
+
+      if (leguar_dan.test(dan_Number) == false) {
+        alert("2~9사이의 숫자를 입력해주세요.");
+        dan.value = '';
+        dan.focus();
+        return;
+      }
+
+      var text_Field = document.getElementById("disp_p");
+
+      switch(parseInt(dan_Number)){
+        case 2: text_Field.style.color="#db005c"; break;
+        case 3: text_Field.style.color="#ef4c16"; break;
+        case 4: text_Field.style.color="#f8c562"; break;
+        case 5: text_Field.style.color="#c2e17f"; break;
+        case 6: text_Field.style.color="#6ed0d1"; break;
+        case 7: text_Field.style.color="#0041a5"; break;
+        case 8: text_Field.style.color="#9570bb"; break;
+        case 9: text_Field.style.color="#9f968d"; break;
+        default:
+      }
+
+      var str = "";
+      for (var i = 1; i <= 9; i++) {
+        str += (dan_Number + "x" + i + "=" + dan_Number * i + "<br>");
+      }
+
+      document.getElementById("disp_p").innerHTML = str;
+    }
+  </script>
+  <style type="text/css">
+    div#disp {
+      width: 50%;
+      height: 400px;
+      background-color: black;
+    }
+
+    #disp_p {
+      font-size: 38px;
+      font-family: "궁서체";
+      text-align: center;
+      color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+
+  단: <input id="dan">
+  <input type="button" value="보여주기" onclick="showGugudan();">
+  <hr>
+
+  <div id="disp">
+    <p id="disp_p">구구단</p>
+
+  </div>
+
+</body>
+
+</html>

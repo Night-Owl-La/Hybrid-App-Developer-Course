@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript" src="../js/my_regular.js"></script>
+  <script type="text/javascript">
+    function send1() {
+      var f = document.forms[0];
+      var id = f.id.value.trim();
+      var pwd = f.pwd.value.trim();
+
+      if (regular_id.test(id) == false) {
+        alert('ID를 제대로 입력하십시오.');
+        f.id.value = '';
+        f.id.focus();
+        return;
+      }
+
+      if (regular_pwd.test(pwd) == false) {
+        alert('PW를 제대로 입력하십시오.');
+        f.pwd.value = '';
+        f.pwd.focus();
+        return;
+      }
+
+      alert('정상 제출 됨.');
+      f.submit
+    }
+
+    function send2() {
+      var f = document.f;
+      var id = f.id.value.trim();
+      var pwd = f.pwd.value.trim();
+
+      if (regular_id.test(id) == false) {
+        alert('ID를 제대로 입력하십시오.');
+        f.id.value = '';
+        f.id.focus();
+        return;
+      }
+
+      if (regular_pwd.test(pwd) == false) {
+        alert('PW를 제대로 입력하십시오.');
+        f.pwd.value = '';
+        f.pwd.focus();
+        return;
+      }
+
+      alert('정상 제출 됨.');
+      f.submit
+    }
+
+    function send3(f_1) {
+      var id = f_1.id.value.trim();
+      var pwd = f_1.pwd.value.trim();
+
+      if (regular_id.test(id) == false) {
+        alert('ID를 제대로 입력하십시오.');
+        f_1.id.value = '';
+        f_1.id.focus();
+        return;
+      }
+
+      if (regular_pwd.test(pwd) == false) {
+        alert('PW를 제대로 입력하십시오.');
+        f_1.pwd.value = '';
+        f_1.pwd.focus();
+        return;
+      }
+
+      alert('정상 제출 됨.');
+      f_1.submit
+    }
+  </script>
+</head>
+
+<body>
+  <form name='f'>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <td><input name="id"></td>
+      </tr>
+      <tr>
+        <th>PW</th>
+        <td><input type="password" name="pwd"></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="button" value="submit-1" onclick="javascript:send1();">
+          <input type="button" value="submit-2" onclick="javascript:send2();">
+          <input type="button" value="submit-3" onclick="javascript:send3(this.form);">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <br>
+
+  <form>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <td><input name="id"></td>
+      </tr>
+      <tr>
+        <th>PW</th>
+        <td><input type="password" name="pwd"></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="button" value="submit-3" onclick="javascript:send3(this.form);">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</body>
+
+</html>

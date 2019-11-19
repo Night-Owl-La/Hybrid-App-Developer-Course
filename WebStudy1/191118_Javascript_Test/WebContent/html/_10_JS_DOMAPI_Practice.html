@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+</head>
+
+<script type="text/javascript">
+  var regular_Width = /^[1-9]{1,2}$/;
+  var regular_Height = /^[1-9]{1,2}$/;
+
+  var l_Square;
+  var movePixel = 10;
+  var c_LR_Margin = 0;
+  var c_UD_Margin = 0;
+  var bClick = false;
+  var temp_Function;
+
+  window.onload = function() {
+    l_Square = document.getElementById('disp');
+  }
+
+  function l_Apply() {
+
+    var l_Width = document.getElementById('l_W');
+    var l_Height = document.getElementById('l_H');
+
+    if (regular_Width.test(l_Width.value) == false) {
+      alert('폭 비정상 적인 입력.');
+      l_Width.value = '';
+      l_Width.focus();
+      return;
+    }
+    if (regular_Height.test(l_Height.value) == false) {
+      alert('높이 비정상 적인 입력.');
+      l_Height.value = '';
+      l_Height.focus();
+      return;
+    }
+
+    l_Square.style.width = l_Width.value + 'px';
+    l_Square.style.height = l_Height.value + 'px';
+    l_Square.style.background = document.getElementById('l_Color').value + '';
+  }
+
+  function moveLeft() {
+    c_LR_Margin -= movePixel;
+    l_Square.style.marginLeft = c_LR_Margin + 'px';
+  }
+
+  function moveRight() {
+    c_LR_Margin += movePixel;
+    l_Square.style.marginLeft = c_LR_Margin + 'px';
+  }
+
+  function moveUp() {
+    c_UD_Margin -= movePixel;
+    l_Square.style.marginTop = c_UD_Margin + 'px';
+  }
+
+  function moveDown() {
+    c_UD_Margin += movePixel;
+    l_Square.style.marginTop = c_UD_Margin + 'px';
+  }
+
+  function moveReset() {
+    c_LR_Margin = 0;
+    c_UD_Margin = 0;
+
+    l_Square.style.margin = '0px 0px 0px 0px';
+  }
+
+  function moveAuto() {
+    bClick = !bClick;
+    if (bClick == true) {
+      clearInterval(temp_Function);
+      temp_Function = setInterval("moveRight();", 500);
+    } else {
+      clearInterval(temp_Function);
+      temp_Function = setInterval("moveLeft();", 500);
+    }
+  }
+
+  function moveStop() {
+    clearInterval(temp_Function);
+  }
+</script>
+
+<style media="screen">
+  .disp {
+    width: 99px;
+    height: 99px;
+    background: black;
+  }
+
+  input[type='button'] {
+    width: 5%;
+  }
+</style>
+
+<body>
+
+  폭:<input id='l_W' placeholder="상자 폭 입력: 1-99px">
+  높이:<input id='l_H' placeholder="상자 높이 입력: 1-99px">
+  색상:<input id='l_Color' placeholder="상자 색깔 입력">
+
+  <input type="button" value="적용" onclick="l_Apply();">
+  <hr>
+
+  <input type="button" value="←" onclick="moveLeft();">
+  <input type="button" value="↑" onclick="moveUp();">
+  <input type="button" value="↓" onclick="moveDown();">
+  <input type="button" value="→" onclick="moveRight();">
+  <input type="button" value="reset" onclick="moveReset();">
+  <hr>
+  <input type="button" value="Auto" onclick="moveAuto();">
+  <input type="button" value="Stop" onclick="moveStop();">
+  <hr>
+
+  <div id="disp" class="disp">
+
+  </div>
+
+</body>
+
+</html>

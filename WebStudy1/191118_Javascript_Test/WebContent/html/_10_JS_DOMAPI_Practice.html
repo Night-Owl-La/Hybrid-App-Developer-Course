@@ -75,10 +75,10 @@
   function moveAuto() {
     bClick = !bClick;
     if (bClick == true) {
-      clearInterval(temp_Function);
+      moveStop();
       temp_Function = setInterval("moveRight();", 500);
     } else {
-      clearInterval(temp_Function);
+      moveStop();
       temp_Function = setInterval("moveLeft();", 500);
     }
   }

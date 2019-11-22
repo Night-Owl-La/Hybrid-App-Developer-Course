@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.content_common_option {
+	padding-left: 50px;
+}
+
+#content_header {
+	padding-top: 50px;	
+}
+
+#content_ul li {
+	margin-left: 50px;
+	padding-top: 20px;
+}
+
+#content_ul a {
+	text-decoration: none;
+	color: white;
+}
+
+#content_ul a:hover{
+	color: blue;
+}

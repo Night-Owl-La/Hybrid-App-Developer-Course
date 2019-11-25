@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="201122_Ui_Design">
+    <wb-module deploy-name="191122_Ui_Design">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="201122_Ui_Design"/>
-        <property name="java-output-path" value="/201122_Ui_Design/build/classes"/>
+        <property name="java-output-path" value="/191122_Ui_Design/build/classes"/>
+        <property name="context-root" value="191122_Ui_Design"/>
     </wb-module>
 </project-modules>

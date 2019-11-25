@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    var regular_Jumin = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/;
+
+    function send_Jumin(form) {
+      if (regular_Jumin.test(form.jumin.value.trim()) == false) {
+        alert("주민등록번호를 제대로 입력하세요.");
+        form.jumin.value = '';
+        form.jumin.focus();
+        return;
+      }
+      form.method = "GET";
+      form.submit();
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <form class="" action="jumin_action.do" method="post">
+    <h2>
+      주민번호: <input type="text" name="jumin" value=""> <input type="button" name="" value="확인" onclick="send_Jumin(this.form)">
+    </h2>
+  </form>
+
+</body>
+
+</html>

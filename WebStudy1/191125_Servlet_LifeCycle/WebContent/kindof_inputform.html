@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+
+  <script type="text/javascript">
+    function send_Get(form) {
+      form.method = "GET";
+      form.submit();
+    }
+
+    function send_Post(form) {
+      form.method = "POST";
+      form.submit();
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <form action="lifecycle.do">
+    <input type="button" value="GET 방식" onclick="send_Get(this.form);">
+    <input type="button" value="POST 방식" onclick="send_Post(this.form);">
+  </form>
+</body>
+
+</html>

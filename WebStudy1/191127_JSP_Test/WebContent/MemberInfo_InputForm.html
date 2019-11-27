@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<script type="text/javascript">
+
+	var regular_Pwd = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
+
+	function send(form) {
+		var name = form.name.value.trim();
+		var id = form.id.value.trim();
+		var pwd = form.pwd.value.trim();
+		var profile = form.profile.value.trim();
+
+		if (name == '') {
+			alert('이름을 입력하세요.');
+			f.name.value = '';
+			f.name.focus();
+			return;
+		}
+
+		if (id == '') {
+			alert('ID를 입력하세요.');
+			f.id.value = '';
+			f.id.focus();
+			return;
+		}
+
+		if (pwd == '') {
+			alert('비밀번호를 입력하세요.');
+			f.pwd.value = '';
+			f.pwd.focus();
+			return;
+		}
+
+		if (regular_Pwd.test(pwd)==false){
+			alert("비밀번호는 6~8자리 영숫자 조합으로 입력하세요.");
+			f.pwd.value = '';
+			f.pwd.focus();
+			return;
+		}
+
+		if (profile == '') {
+			alert('자기소개를 입력하세요.');
+			f.profile.value = '';
+			f.profile.focus();
+			return;
+		}
+
+		form.submit();
+	}
+</script>
+
+<body>
+	<form action="MemberInfo_Output.jsp" method="POST">
+		<table border="1" width="500" cellspacing=0>
+
+			<tr>
+				<th colspan="1" align="left">*NAME:</th>
+				<td><input name="name"></td>
+			</tr>
+
+			<tr>
+				<th align="left">*ID:</th>
+				<td><input name="id"></td>
+			</tr>
+
+			<tr>
+				<th colspan="1" align="left">*Password:</th>
+				<td><input type="password" name="pwd" placeholder="6~8자리 영숫자 조합"></td>
+			</tr>
+
+			<tr>
+				<th colspan="1" align="left">Sex:</th>
+				<td>
+					<input type="radio" name="gender" value="남자" checked="checked"> 남자
+					<input type="radio" name="gender" value="여자">여자
+				</td>
+			</tr>
+
+			<tr>
+				<th colspan="1" align="left">Hobby:</th>
+				<td>
+					<input type="checkbox" name="hobby" value="독서">독서
+					<input type="checkbox" name="hobby" value="낚시">낚시
+					<input type="checkbox" name="hobby" value="운동">운동
+					<input type="checkbox" name="hobby" value="영화">영화
+				</td>
+			</tr>
+
+			<tr>
+				<th align="left">Blood Type:</th>
+				<td>
+					<select name="bloodtype">
+						<option value="A">A형</option>
+						<option value="B">B형</option>
+						<option value="O">O형</option>
+						<option value="AB">AB형</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<th>*자기소개</th>
+				<td>
+					<textarea name="profile" rows="5" cols="50" style="resize: none;"></textarea>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="center">
+					<input type="button" value="전송" onclick="send(this.form);">
+					<input type="reset" value="입력취소">
+				</td>
+			</tr>
+
+		</table>
+	</form>
+
+</body>
+
+</html>

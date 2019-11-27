@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		var regular_Dan = /^[2-9]{1}$/;
+
+		function send(form) {
+			var dan = form.dan.value.trim();
+			if (regular_Dan.test(dan) == false) {
+				alert("2~9사이 수를 입력하세요.")
+				form.dan.value = '';
+				form.dan.focus();
+				return;
+			}
+			form.submit();
+		}
+	</script>
+</head>
+
+<body>
+
+	<form class="" action="Test_Gugudan.jsp" method="POST">
+		<input type="text" name="dan" value="">
+		<input type="button" name="" value="전송" onclick="send(this.form)">
+	</form>
+
+</body>
+
+</html>

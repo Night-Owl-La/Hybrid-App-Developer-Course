@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    function send(form) {
+      var title = form.title.value.trim();
+      var photo1 = form.photo1.value;
+      var photo2 = form.photo2.value;
+
+      if (title == '') {
+        alert("제목을 입력하세요.");
+        form.title.value = '';
+        form.title.focus();
+        return;
+      }
+
+      if (photo1 == '') {
+        alert("사진1을 선택하세요.");
+        return;
+      }
+
+      if (photo2 == '') {
+        alert("사진2을 선택하세요.");
+        return;
+      }
+      form.submit();
+
+    }
+  </script>
+</head>
+
+<body>
+  <form class="" action="upload2.do" method="post" enctype="multipart/form-data">
+    제목: <input name="title" value=""><br>
+    사진1: <input type="file" name="photo1" value=""><br>
+    사진2: <input type="file" name="photo2" value=""><br>
+    <input type="button" value="전송" onclick="send(this.form);">
+  </form>
+
+</body>
+
+</html>

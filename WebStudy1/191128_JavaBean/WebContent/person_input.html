@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <script type="text/javascript">
+    function send(form) {
+      var regular_number = /^[0-9]+$/
+
+      var name = form.name.value.trim();
+      var age = form.age.value.trim();
+      var addr = form.addr.value.trim();
+
+      if (name == '') {
+        alert('이름이 비어있습니다.');
+        form.name.value = '';
+        form.focus();
+        return;
+      }
+
+      if (regular_number.test(age) == false) {
+        alert('나이를 정확하게 입력하세요');
+        form.age.value = '';
+        form.focus();
+        return;
+      }
+
+      if (addr == '') {
+        alert('주소가 비어있습니다.');
+        form.addr.value = '';
+        form.focus();
+        return;
+      }
+      form.method="get";
+      form.submit();
+    }
+    
+    function send2(form) {
+        var regular_number = /^[0-9]+$/
+
+        var name = form.name.value.trim();
+        var age = form.age.value.trim();
+        var addr = form.addr.value.trim();
+
+        if (name == '') {
+          alert('이름이 비어있습니다.');
+          form.name.value = '';
+          form.focus();
+          return;
+        }
+
+        if (regular_number.test(age) == false) {
+          alert('나이를 정확하게 입력하세요');
+          form.age.value = '';
+          form.focus();
+          return;
+        }
+
+        if (addr == '') {
+          alert('주소가 비어있습니다.');
+          form.addr.value = '';
+          form.focus();
+          return;
+        }
+        form.action="person_result2.jsp";
+        form.submit();
+      }
+  </script>
+</head>
+
+<body>
+
+  <form class="" action="person_result.jsp" method="post">
+    이름: <input type="text" name="name" value="임시 이름1"><br>
+    나이: <input type="number" name="age" value="11"><br>
+    주소: <input type="text" name="addr" value="임시 주소1"><br>
+    <input type="button" name="" value="GET 전송1" onclick="send(this.form)">
+    <input type="button" name="" value="POST 전송2" onclick="send2(this.form)">
+  </form>
+
+</body>
+
+</html>

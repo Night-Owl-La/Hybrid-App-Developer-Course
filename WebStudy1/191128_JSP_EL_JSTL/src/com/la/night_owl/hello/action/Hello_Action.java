@@ -16,7 +16,7 @@ public class Hello_Action extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("text/html; charset=utf-8;");
 
-		String forward = "";
+		String forward = "hello_view.jsp";
 		RequestDispatcher disp = req.getRequestDispatcher(forward);
 		disp.forward(req, resp);
 	}

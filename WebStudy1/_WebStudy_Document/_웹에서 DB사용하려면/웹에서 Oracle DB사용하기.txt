@@ -1,0 +1,11 @@
+#DBCP 운영 라이브러리.
+	commons-collections-3.2.1
+	commons-dbcp-1.2.2
+	commons-pool-1.4
+#JDBC 라이브러리.
+	ojdbc14
+
+위 4파일들을 Project의 WEB-INF\lib에 넣기.
+
+context.xml 파일을 Project의 META-INF에 넣기.
+context.xml 파일을 현재 컴퓨터 환경에 맞게 수정

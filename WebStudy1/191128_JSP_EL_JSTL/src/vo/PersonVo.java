@@ -5,6 +5,16 @@ public class PersonVo {
 	int age;
 	String addr;
 
+	public PersonVo() {
+		super();
+	}
+
+	public PersonVo(String name, int age, String addr) {
+		this.name = name;
+		this.age = age;
+		this.addr = addr;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -16,7 +26,7 @@ public class PersonVo {
 	public int getAge() {
 		return age;
 	}
-	
+
 	public void setAge(int age) {
 		this.age = age;
 	}
@@ -24,7 +34,7 @@ public class PersonVo {
 	public String getAddr() {
 		return addr;
 	}
-	
+
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}

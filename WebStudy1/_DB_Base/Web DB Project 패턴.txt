@@ -1,0 +1,14 @@
+#환경설정
+ 1. Library 삽입.
+ 2. Context 설정.
+
+#DB 설정.
+ 1. DB 내용 만들기.
+
+#Package
+ 0. Test
+ 1. VO
+ 2. DAO
+ 3. Service
+ 4. Action
+ 5. View

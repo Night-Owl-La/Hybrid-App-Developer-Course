@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#main_box {
+	width: 500px;
+	margin: auto;
+}
+
+#main_box > h1{
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	margin: 30px;
+}
+
+#empty_message {
+	text-align: center;
+}
+
+.content_box {
+	border: 1px solid black;
+	margin-top: 20px;
+	color: black;
+}
+
+.content_box > div{
+	padding: 5px;
+}
+
+.content {
+	min-height: 60px;
+	padding: 10px;
+	border-bottom: 1px solid black;
+}
+
+.name {
+	border-bottom: 1px solid black;
+}
+
+.regdate {
+	border-bottom: 1px solid black;
+}

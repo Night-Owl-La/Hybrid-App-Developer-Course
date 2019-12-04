@@ -1,0 +1,37 @@
+<!-- 
+	::JSON(Javascript Object Notation)표기법
+	  서로 다른 프로그램에서 데이터를 교환하기 위한 표기법
+	  읽기/쓰기가 쉽다(배열형식)
+	  
+	::표현법
+	  1) 이름/값 형식으로 하나의 쌍으로 인식된다.(Map구조)
+	  2) JSON -> {이름:값,이름:값,.....};
+	     ex) var cnt = {c1:First,c2:Second,c3:Third}
+	         var c1_value = cnt.c1; ( First가 들어감 )
+	         var c2_value = cnt.c2; //Second
+	         var c3_value = cnt['c3']; //Third값
+	     단순배열표현
+	     배열 -> [값1,값2,값3];
+ -->
+ <script type="text/javascript">
+ 	var mem={lee:"이씨",park:"박씨",kim:"김씨"};
+    document.write(mem.park+"<br>");
+    document.write(mem['kim']+"<br>");
+
+    var mem1 =["일지매","이지매","삼지매"];
+    document.write(mem1[2]+"<br>");
+
+    var mem2 = [ 
+                {kim:"김씨",nam:"남씨"},
+                {lee:"이씨",choi:"최씨"},
+                {yang:"양씨",park:"박씨"},
+               ];
+    document.write(mem2[1].choi+"<br>");
+
+    var mem3 = {
+                c1:["김씨","남씨"],
+                c2:["이씨","최씨"],
+                c3:["양씨","박씨"]
+    };
+    document.write(mem3.c1[1]+"<br>");
+ </script>

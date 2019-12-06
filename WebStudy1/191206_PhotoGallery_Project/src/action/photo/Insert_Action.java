@@ -31,11 +31,8 @@ public class Insert_Action extends HttpServlet {
 		int maxSize = 1024 * 1024 * 100;
 		
 		MultipartRequest mr = new MultipartRequest(request, saveDir, maxSize, "utf-8", new DefaultFileRenamePolicy());
-		String title = mr.getParameter(mr.getParameter("p_subject"));
 		
-		File photo_File = null;
-		
-		photo_File = mr.getFile("file");
+		File photo_File = mr.getFile("file");
 		
 		HttpSession session = request.getSession();
 		MemberVo user = (MemberVo) session.getAttribute("user");

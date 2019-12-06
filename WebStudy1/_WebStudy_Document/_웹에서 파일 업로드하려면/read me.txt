@@ -1,0 +1,3 @@
+cos.jar 라이브러리를 Project/WebContent/WEB-INF/lib에 넣는다.
+
+request 대신 multipartRequest를 사용한다.

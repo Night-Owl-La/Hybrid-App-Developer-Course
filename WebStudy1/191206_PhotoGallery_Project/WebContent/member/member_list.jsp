@@ -74,6 +74,7 @@
 	
 		<div>
 			<input type="button" value="회원가입" class="btn btn-default" onclick="location.href='insert_form.do'"/>
+			<input type="button" value="포토갤러리" class="btn btn-info" onclick="location.href='${ pageContext.request.contextPath}/photo/list.do'"/>
 		</div>
 	</div>
 </body>

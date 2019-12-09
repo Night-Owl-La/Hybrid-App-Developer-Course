@@ -19,7 +19,7 @@ import vo.MemberVo;
 import vo.PhotoVo;
 
 @WebServlet("/photo/insert.do")
-public class Insert_Action extends HttpServlet {
+public class Photo_Insert_Action extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -33,9 +33,7 @@ public class Insert_Action extends HttpServlet {
 		MultipartRequest mr = new MultipartRequest(request, saveDir, maxSize, "utf-8", new DefaultFileRenamePolicy());
 		String title = mr.getParameter(mr.getParameter("p_subject"));
 		
-		File photo_File = null;
-		
-		photo_File = mr.getFile("file");
+		File photo_File = mr.getFile("file");
 		
 		HttpSession session = request.getSession();
 		MemberVo user = (MemberVo) session.getAttribute("user");

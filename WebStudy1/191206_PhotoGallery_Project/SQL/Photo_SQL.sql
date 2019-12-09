@@ -12,3 +12,5 @@ create table photo(
 
 alter table photo add constraint pk_photo_p_idx primary key(p_idx);
 alter table photo add constraint fk_photo_m_idx foreign key(m_idx) references member(idx);
+
+select * from photo;

@@ -36,7 +36,6 @@
 <body>
 	<div class="main_box">
 		<form action="insert.do" enctype="multipart/form-data" method="post">
-		<input type="hidden" name="p_idx" value="" />
 			<table  class="table table-bordered table-hover member_signup_box">
 				<caption><h1>:::사진 업로드:::</h1></caption>
 				

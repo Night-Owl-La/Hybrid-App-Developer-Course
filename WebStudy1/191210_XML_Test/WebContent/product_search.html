@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<style type="text/css">
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#top_box{
+	padding: 5px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#btn_find").click(function() {
+			var book_name = $("#product_name").val().trim();
+
+			var page_select = $('#page_select').val();
+			var display_select = $('#display_select').val();
+			
+			var start = (page_select-1)*display_select +1;
+			
+			
+			if (book_name == '') {
+				alert("검색할 도서명을 입력하세요.");
+				$('#product_name').val('');
+				$('#product_name').focus();
+				return;
+			}
+
+			$.ajax({
+				url : "product_search.do",
+				data : { "product_name" : book_name, "start" : start, "display" : display_select },
+				success : function(res_data) {
+					$('#disp').html(res_data);
+
+				},
+				error : function(request, status, error) {
+					alert(error);
+				}
+
+			}); // ajax end.
+		}); // click end.
+	});
+</script>
+</head>
+<body>
+	<div>
+		<div id="top_box">
+			상품명: <input id="product_name" /> 
+			상품명: <input id="btn_find" class="btn btn-default" type="button" value="검색" />
+			페이지:<select name="" id="page_select">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+			
+			화면당 출력개수:<select name="" id="display_select">
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="30">30</option>
+				<option value="40">40</option>
+				<option value="50">50</option>
+			</select>
+		</div>
+		<hr />
+		<div id="disp"></div>
+	</div>
+
+</body>
+</html>

@@ -1,3 +1,5 @@
+<script src="${ pageContext.request.contextPath }/js/httpRequest.js"></script>
+
 $.ajax({  
     type : "POST",  
     url : "/xxx/yyy/zzz/check",  

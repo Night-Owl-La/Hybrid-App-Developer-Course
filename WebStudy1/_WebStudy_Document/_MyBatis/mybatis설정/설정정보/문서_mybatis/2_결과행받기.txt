@@ -1,0 +1,10 @@
+<mapper>
+
+    <select id="dept" resultType="empRes" parameterType="int">
+        SELECT * FROM EMP WHERE deptno=#{no}
+    </select>
+    
+    <select id="ename" resultType="empRes" parameterType="String">
+        SELECT * FROM EMP WHERE ename=#{no}
+    </select>
+</mapper>

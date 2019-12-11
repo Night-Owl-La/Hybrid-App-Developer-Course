@@ -1,0 +1,16 @@
+<mapper>
+    <insert id="emp_insert" parameterType="vo.Emp">
+        insert into emp_1(empno,ename,job,sal,deptno) 
+	values(#{empno},#{ename},#{job},#{sal},#{deptno})
+    </insert>
+    
+    <delete id="emp_delete" parameterType="int">
+        delete  emp_1 where empno=#{no}
+    </delete>
+
+    <update id="emp_update" parameterType="vo.Emp">
+        update  emp_1 set ename=#{ename},job=#{job},
+	                  sal=#{sal}
+	where empno=#{empno}
+    </update>
+</mapper>

@@ -1,0 +1,5 @@
+<mapper>
+	<procedure id="proc_insert" parameterType="vo.Emp" >
+	  {call sp_emp1_insert (#{empno}, #{ename} , #{job} , #{sal},#{deptno} )}
+	</procedure>
+</mapper>

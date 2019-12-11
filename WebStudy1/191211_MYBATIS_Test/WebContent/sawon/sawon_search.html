@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<style type="text/css">
+html, body{
+width: 100%;
+height: 100%;
+}
+#bottom{
+	height: 98%;
+}
+
+.top_content{
+	text-align: center;
+	margin: 10px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(function() {
+		find();
+		$("#deptno").change(find);
+		$("#sajob").change(find_sajob);
+		$('#select_pay').click(find_pay);
+		$('#select_year').click(find_year);
+	});
+	
+	function find() {
+		var deptno = $("#deptno").val();
+		
+		$.ajax({
+			url : "list.do",
+			data : {"deptno" : deptno},
+			success : function(res_data) {
+				$("#disp").html(res_data);				
+			}
+		});
+	}
+	
+	function find_sajob() {
+		var sajob = $("#sajob").val();
+		
+		$.ajax({
+			url : "sajob_list.do",
+			data : {"sajob" : sajob},
+			success : function(res_data) {
+				$("#disp").html(res_data);				
+			}
+		});
+	}
+	
+	function find_pay() {
+		var min_pay = $('#min_pay').val().trim();
+		var max_pay = $('#max_pay').val().trim();
+		
+		$.ajax({
+			url : "sapay_list.do",
+			data : { "min_pay" : min_pay, "max_pay" : max_pay },
+			success : function(res_data) {
+				$("#disp").html(res_data);
+			}
+		});
+	}
+	
+	function find_year() {
+		var start_year = $('#start_year').val().trim();
+		var end_year = $('#end_year').val().trim();
+		
+		$.ajax({
+			url : "sahire_list.do",
+			data : { "start_year" : start_year, "end_year" : end_year },
+			success : function(res_data) {
+				$("#disp").html(res_data);
+			}
+		});
+	}
+	
+</script>
+</head>
+<body>
+	<div class="alert alert-info">
+		<div class="top_content">
+			부서번호 : 
+			<select name="" id="deptno" class="btn btn-default">
+				<option value="0">전체보기</option>
+				<option value="10">10번 부서</option>
+				<option value="20">20번 부서</option>
+				<option value="30">30번 부서</option>
+				<option value="40">40번 부서</option>
+			</select>
+		</div>
+		
+		<div class="top_content">
+			부서번호 : 
+			<select name="" id="sajob" class="btn btn-default">
+				<option value="사원">사원</option>
+				<option value="대리">대리</option>
+				<option value="과장">과장</option>
+				<option value="부장">부장</option>
+			</select>
+		</div>
+		
+		<div class="top_content">
+			급여 범위내 조회 :
+			<input type="number" id="min_pay"/>~<input type="number" id="max_pay" />
+			<input type="button" id="select_pay" class="btn btn-success" value="조회"/>
+		</div>
+		
+		<div class="top_content">
+			입사년도 범위내 조회 :
+			<input type="number" id="start_year"/>~<input type="number" id="end_year" />
+			<input type="button" id="select_year" class="btn btn-success" value="조회"/>
+		</div>
+	</div>
+
+	<hr />
+
+	<div id="disp"></div>
+	
+	<div id="bottom" class="alert alert-info"></div>
+
+</body>
+</html>

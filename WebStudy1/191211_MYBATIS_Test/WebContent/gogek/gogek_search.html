@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<style type="text/css">
+html, body{
+width: 100%;
+height: 100%;
+}
+#bottom{
+	height: 98%;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+	$(function() {
+		find();
+		$("#btn_find").click(find);
+		$("#btn_find_goname").click(find_goname);
+	});
+	
+	function find() {
+		var gobun = $("#gobun").val().trim();
+		
+		$.ajax({
+			url : "list.do",
+			data : {"gobun" : gobun},
+			success : function(res_data) {
+				$("#disp").html(res_data);				
+			}
+		});
+	}
+	
+	function find_goname() {
+		var goname = $("#goname").val().trim();
+		
+		$.ajax({
+			url : "goname_list.do",
+			data : {"goname" : goname},
+			success : function(res_data) {
+				$("#disp").html(res_data);				
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<div class="alert alert-info">
+		<div style="text-align: center; margin: 10px;">
+			고객번호 : <input type="number" id="gobun" /> 
+			<input id="btn_find" class="btn btn-success" type="button" value="조회"/>
+		</div>
+		
+		<div style="text-align: center; margin: 10px;">
+			고객이름 : <input type="text" id="goname" /> 
+			<input id="btn_find_goname" class="btn btn-success" type="button" value="조회"/>
+		</div>
+	</div>
+
+	<hr />
+
+	<div id="disp"></div>
+	
+	<div id="bottom" class="alert alert-info"></div>
+
+</body>
+</html>

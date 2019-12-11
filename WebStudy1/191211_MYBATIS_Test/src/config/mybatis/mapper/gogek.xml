@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gogek">
+
+	<select id="gogek_list" resultType="vo.GogekVo">
+		select * from gogek
+	</select>
+	
+	<select id="gogek_list_gobun" parameterType="int" resultType="vo.GogekVo">
+		select * from gogek where gobun=#{ gobun }
+	</select>
+	
+	<select id="gogek_list_goname" parameterType="String" resultType="vo.GogekVo">
+		select * from gogek where goname=#{ goname }
+	</select>
+	
+</mapper>

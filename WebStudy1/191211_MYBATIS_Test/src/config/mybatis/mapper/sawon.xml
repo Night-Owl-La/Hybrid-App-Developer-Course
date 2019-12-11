@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sawon">
+
+	<!-- 전체 조회 -->
+	<select id="sawon_list" resultType="vo.SawonVo">
+		select * from sawon
+	</select>
+	
+	<!-- 부서별 조회 -->
+	<select id="sawon_list_deptno" parameterType="int" resultType="vo.SawonVo" >
+		select * from sawon where deptno=#{ deptno }
+	</select>
+	
+	<!-- 직급별 조회 -->
+	<select id="sawon_list_sajob" parameterType="String" resultType="vo.SawonVo" >
+		select * from sawon where sajob=#{ sajob }
+	</select>
+	
+	<!-- 급여 범위내 조회 -->
+	<select id="sawon_list_sapay" parameterType="java.util.Map" resultType="vo.SawonVo" >
+		select * from sawon where sapay between #{ min_pay } and #{ max_pay } order by sapay desc
+	</select>
+	
+	<!-- 입사년도 범위내 조회 -->
+	<select id="sawon_list_sahire" parameterType="java.util.Map" resultType="vo.SawonVo" >
+		select * from sawon where to_number(to_char(sahire, 'yyyy')) between #{ start_year } and #{ end_year }
+	</select>
+
+</mapper>

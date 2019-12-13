@@ -25,16 +25,16 @@
 </head>
 <body>
 	<div id="header">
-		<h1>고객 목록</h1>
+		<h1>Gogek List</h1>
 	</div>
 	<div id="content">
 		<table class="table table-bordered table-hover">
 			<tr>
-				<th>고객번호</th>
-				<th>고객이름</th>
-				<th>고객주소</th>
-				<th>고객 주민등록번호</th>
-				<th>고객담당자</th>
+				<th>Gogek no</th>
+				<th>Gogek name</th>
+				<th>Gogek address</th>
+				<th>Gogek RRN</th>
+				<th>Gogek Manager</th>
 			</tr>
 
 			<c:forEach var="gogek" items="${ list }">

@@ -24,19 +24,20 @@
 </head>
 <body>
 	<div id="header">
-		<h1>사원 목록</h1>
+		<h1>Sawon List</h1>
 	</div>
 	<div id="content">
 		<table class="table table-bordered table-hover">
 			<tr>
-				<th>사원번호</th>
-				<th>사원이름</th>
-				<th>사원성별</th>
-				<th>부서번호</th>
-				<th>사원직급</th>
-				<th>입사날짜</th>
-				<th>사원담당자</th>
-				<th>사원급여</th>
+				<th>Sawon no</th>
+				<th>Sawon name</th>
+				<th>Sawon gender</th>
+				<th>Dept no</th>
+				<th>Sawon job</th>
+				<th>Sawon hire</th>
+				<th>Sawon manager</th>
+				<th>Sawon pay</th>
+				<th style="color: blue;">Sawon gogek</th>
 			</tr>
 
 			<c:forEach var="sawon" items="${ list }">
@@ -49,6 +50,13 @@
 					<td>${ fn:substring(sawon.sahire,0,10) }</td>
 					<td>${ sawon.samgr }</td>
 					<td><fmt:formatNumber type="currency" value="${ sawon.sapay }" /></td>
+					<td style="padding-left: 20px; color: blue;">
+						<ul>
+							<c:forEach var="gogek" items="${ sawon.gogek_list }">
+								<li>${ gogek.gobun } : ${ gogek.goname }</li>
+							</c:forEach>
+						</ul>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

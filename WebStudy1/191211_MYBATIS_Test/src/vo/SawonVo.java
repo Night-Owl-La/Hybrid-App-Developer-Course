@@ -1,5 +1,7 @@
 package vo;
 
+import java.util.List;
+
 /*
  VO : Value Object
  1.�������̸� DB�ʵ��� ������ �Ӽ����� ���
@@ -9,6 +11,10 @@ package vo;
 public class SawonVo {
 	int sabun, deptno, sapay, samgr;
 	String saname, sasex, sajob, sahire;
+	
+	//sabun에 해당하는 고객목록.
+	List<GogekVo> gogek_list;
+	
 
 	public int getSabun() {
 		return sabun;
@@ -73,5 +79,15 @@ public class SawonVo {
 	public void setSahire(String sahire) {
 		this.sahire = sahire;
 	}
+
+	public List<GogekVo> getGogek_list() {
+		return gogek_list;
+	}
+
+	public void setGogek_list(List<GogekVo> gogek_list) {
+		this.gogek_list = gogek_list;
+	}
+	
+	
 
 }

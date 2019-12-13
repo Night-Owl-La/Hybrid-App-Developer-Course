@@ -1,12 +1,11 @@
 <resultMap id="deptResult" type="vo.DeptVo">
+	
+<!-- preperty와 column이 같으면 생략 가능  -->
     <result property="deptno" column="deptno"/>
     <result property="dname" column="dname"/>
     <result property="loc" column="loc"/>
-    <collection property="sa_list" 
-                column="{deptno=deptno}" 
-                javaType="java.util.ArrayList" 
-                ofType="vo.Sawon" 
-                select="select_sawon_deptno"/>
+    
+    <collection property="sa_list" column="{deptno=deptno}" javaType="java.util.ArrayList" ofType="vo.Sawon" select="select_sawon_deptno"/>
 </resultMap>
  
 <select id="select_dept" resultMap="deptResult">

@@ -1,31 +1,21 @@
 <mapper>
- <!-- °á°ú ResultSet¸¦ Emp List·Î ¹ÝÈ¯ --> 
+
+ <!-- select idë¡œ í˜¸ì¶œ, return type : java.util.arrayList -->
     <select id="allSawon" resultType="vo.Sawon">
         SELECT * FROM sawon
     </select>
-<!-- 
-  ÆÄ¶ó¸ÞÅÍ(ÀÚ·áÇü ÁöÁ¤)¿¡ ÀÇÇÑ °á°ú ÃßÃâ
-  #{ÆÄ¶ó¸ÞÅÍÀÌ¸§} Àº ÀÓÀÇ·Î ÁöÁ¤ÇØµµ µÈ´Ù.
--->   
+<!-- parameter = ì „ë‹¬ì¸ìž, SQLì— ëŒ€ìž… #{ ì „ë‹¬ì¸ìž ì´ë¦„ } -->
     <select id="SawonDeptno" parameterType="int" resultType="vo.Sawon">
         SELECT * FROM sawon where deptno=#{no}
     </select>
-    
-<!-- 
-   ÆÄ¶ó¸ÞÅÍ(Å¬·¡½ºÇü ÁöÁ¤)¿¡ ÀÇÇÑ °á°ú ÃßÃâ 
-   #{ÆÄ¶ó¸ÞÅÍÀÌ¸§} =>¿©±â¼­ #{ÀÎÀÚ¸í} Àº Å¬·¡½º¸â¹ö º¯¼ö¿Í µ¿ÀÏÇØ¾ßÇÔ.
--->      
+<!-- parameter = Class type, #{ í´ëž˜ìŠ¤ë©¤ë²„ } -->
     <select id="SawonDeptnoName" parameterType="vo.Sawon"  resultType="vo.Sawon">
         SELECT * FROM sawon where deptno=#{deptno} and saname like #{saname} || '%'
     </select>
 
-<!-- 
-   ÆÄ¶ó¸ÞÅÍ(java.util.Map ÁöÁ¤)¿¡ ÀÇÇÑ °á°ú ÃßÃâ 
-   #{ÆÄ¶ó¸ÞÅÍÀÌ¸§} =>¿©±â¼­ #{ÀÎÀÚ¸í} Àº MapÀÇ key ÀÌ¸§°ú µ¿ÀÏÇØ¾ßÇÔ.
--->      
+<!-- parameter = java.util.Map, #{ Map-Key Name } -->
     <select id="SawonDeptnoNameMap" parameterType="java.util.Map"  resultType="vo.Sawon">
         SELECT * FROM sawon where deptno=#{deptno} and saname like '%' || #{saname} || '%'
     </select>
-
 
 </mapper>

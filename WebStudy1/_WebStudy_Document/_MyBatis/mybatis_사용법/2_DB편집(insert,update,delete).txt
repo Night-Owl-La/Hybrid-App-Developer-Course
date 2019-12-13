@@ -1,7 +1,7 @@
 <mapper>
+
     <insert id="emp_insert" parameterType="vo.Emp">
-        insert into emp_1(empno,ename,job,sal,deptno) 
-	values(#{empno},#{ename},#{job},#{sal},#{deptno})
+        insert into emp_1(empno,ename,job,sal,deptno) values(#{empno},#{ename},#{job},#{sal},#{deptno})
     </insert>
     
     <delete id="emp_delete" parameterType="int">
@@ -9,8 +9,7 @@
     </delete>
 
     <update id="emp_update" parameterType="vo.Emp">
-        update  emp_1 set ename=#{ename},job=#{job},
-	                  sal=#{sal}
-	where empno=#{empno}
+        update  emp_1 set ename=#{ename}, job=#{job}, sal=#{sal} where empno=#{empno}
     </update>
+
 </mapper>

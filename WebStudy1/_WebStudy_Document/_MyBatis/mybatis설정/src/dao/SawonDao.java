@@ -10,10 +10,10 @@ import service.MyBatisConnector;
 import vo.SawonVo;
 
 public class SawonDao {
-	//single-ton : °´Ã¼1°³¸¸ »ı¼º ¼­ºñ½º
+	//single-ton : ê°ì²´1ê°œë§Œ ìƒì„± ì„œë¹„ìŠ¤
 	static SawonDao single = null;
 
-	//SessionFactory»ı¼ºÇÏ´Â °´Ã¼
+	//SessionFactoryìƒì„±í•˜ëŠ” ê°ì²´
 	SqlSessionFactory factory;
 	
 	public SawonDao() {

@@ -17,7 +17,7 @@ int maxSize = 1024 * 1024 * 100;
 //mr setting.
 MultipartRequest mr = new MultipartRequest(request, saveDir, maxSize, "utf-8", new DefaultFileRenamePolicy());
 
-// create file.
+//create file.
 File photo_File = mr.getFile("?filename?");
 
 --------------------------------------------------------------------------

@@ -9,7 +9,7 @@
   CATALINA_HOEM=C:\apache-tomcat-8.5.47
 
 ##[오라클 web 포트변경]
- 1)sqlplus system/oracle  
+  sqlplus system/oracle  
    SQL>exec dbms_xdb.sethttpport(9000);
    SQL>exec dbms_xdb.sethttpport(8080);
 

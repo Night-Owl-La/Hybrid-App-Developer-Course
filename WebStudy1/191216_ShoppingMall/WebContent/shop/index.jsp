@@ -25,6 +25,11 @@ a:hover {
 	color: red
 }
 
+#category_box a {
+	font-size: 20px;
+	font-weight: bold;
+}
+
 </style>
 </head>
 <body>
@@ -46,13 +51,15 @@ a:hover {
 				<input type="button" value="login" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/member/login_form.do'" />
 			</c:if>
 			
-			<c:if test="${ not empty user }">
-				<input type="button" value="logout" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"/>
-			</c:if>
-			
 			<c:if test="${ (not empty user) and (user.grade eq '관리자') }">
 				<input type="button" value="상품등록" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath}/shop/product_insert_form.do'" />
 			</c:if>
+			
+			<c:if test="${ not empty user }">
+				<input type="button" value="장바구니" class="btn btn-success" onclick="location.href='${pageContext.request.contextPath}/shop/cart_list.do'" />
+				<input type="button" value="logout" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/member/logout.do'"/>
+			</c:if>
+			
 		
 		</div>
 		

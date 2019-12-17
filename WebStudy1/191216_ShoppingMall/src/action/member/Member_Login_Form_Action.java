@@ -17,6 +17,17 @@ public class Member_Login_Form_Action extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
+		// 다른 페이지에서 미로그인 핸들링 됬을시.
+		String reason = null;
+		
+		try {
+			reason = request.getParameter("reason");
+		} catch (NullPointerException e) {
+			System.out.println("reason = null");
+			reason = "";
+		}
+		
+		
 		String forward = "member_login_form.jsp";
 		RequestDispatcher disp = request.getRequestDispatcher(forward);
 		disp.forward(request, response);

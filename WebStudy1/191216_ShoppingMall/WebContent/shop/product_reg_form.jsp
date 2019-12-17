@@ -11,18 +11,78 @@
 	href="${ pageContext.request.contextPath }/css/product.css" />
 
 <title>Insert title here</title>
-<script type="text/javascript">
-	function checkdata(f) {
-		category = f.category.value;
-		p_num = f.p_num.value;
-		p_name = f.p_name.value;
-		p_company = f.p_company.value;
-		p_price = f.p_price.value;
-		p_saleprice = f.p_saleprice.value;
-		p_content = f.p_content.value;
-		p_image_s = f.p_image_s.value;
-		p_image_l = f.p_image_l.value;
 
+<script type="text/javascript">
+	
+	var regular_p_num = /^[a-zA-Z]{1,3}[0-9]{1,}$/;
+	var regular_price = /^[0-9]{1,}$/;
+	
+	
+	function checkdata(f) {
+		
+		if(f.category.value == ''){
+			alert('상품 카테고리가 비어있습니다.');
+			f.category.value='';
+			f.category.focus();
+			return;
+		}
+		
+		if(regular_p_num.test(f.p_num.value)==false){
+			alert('상품 번호를 제대로 입력해주세요.');
+			f.p_num.value='';
+			f.p_num.focus();
+			return;
+		}
+
+		if(f.p_name.value == ''){
+			alert('상품 이름이 비어있습니다.');
+			f.p_name.value='';
+			f.p_name.focus();
+			return;
+		}
+		
+		if(f.p_company.value == ''){
+			alert('상품 판매자가 비어있습니다.');
+			f.p_company.value='';
+			f.p_company.focus();
+			return;
+		}
+		
+		if(regular_price.test(f.p_price.value)==false){
+			alert('상품 원가가 비정상 입력.');
+			f.p_price.value='';
+			f.p_price.focus();
+			return;
+		}
+		
+		if(regular_price.test(f.p_saleprice.value)==false){
+			alert('상품 할인가격 비정상 입력.');
+			f.p_saleprice.value='';
+			f.p_saleprice.focus();
+			return;
+		}
+		
+		if(f.p_content.value == ''){
+			alert('상품 내용가 비어있습니다.');
+			f.p_content.value='';
+			f.p_content.focus();
+			return;
+		}
+		
+		if(f.p_image_s.value == ''){
+			alert('상품  이미지 S가 비어있습니다.');
+			f.p_image_s.value='';
+			f.p_image_s.focus();
+			return;
+		}
+		
+		if(f.p_image_l.value == ''){
+			alert('상품 이미지L가 비어있습니다.');
+			f.p_image_l.value='';
+			f.p_image_l.focus();
+			return;
+		}
+		
 		f.submit();
 
 	}
@@ -37,7 +97,7 @@
 		enctype="multipart/form-data">
 		<div id="main_box" style="height: 100%;">
 			<table id="product_table" class="table table-bordered table-hover">
-				<tbody class="alert alert-success">
+				<tbody>
 					<tr>
 						<th>제품Category</th>
 						<td><select name="category">
@@ -72,17 +132,18 @@
 						<td><TEXTAREA name="p_content" rows="5" cols="50"></TEXTAREA></td>
 					</tr>
 					<tr>
-						<th>제품사진(작은사진)</th>
+						<th>제품사진 (작은사진)</th>
 						<td><input type="file" name="p_image_s">
 					</tr>
 					<tr>
-						<th>제품사진(큰사진)</th>
+						<th>제품사진 (큰사진)</th>
 						<td><input type="file" name="p_image_l">
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="button"
-							value="등록" onclick="javascript:checkdata(this.form);"> <input
-							type="reset" value="Clear"></td>
+						<td class="alert alert-info" colspan="2" align="center">
+							<input type="button" class="btn btn-primary" value="등록" onclick="checkdata(this.form);"> 
+							<input type="reset" class="btn btn-default" value="Clear">
+						</td>
 					</tr>
 				</tbody>
 			</table>

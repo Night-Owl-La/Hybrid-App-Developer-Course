@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/css/member.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="${ pageContext.request.contextPath }/js/httpRequest.js"></script>
 <script type="text/javascript">
 	
 	window.onload = function() {
@@ -23,6 +22,12 @@
 		
 		if("${ param.reason eq 'fail_pwd'}" == 'true'){
 			alert('비밀번호가 틀립니다');
+		}
+		
+		// 다른 페이지에서 미로그인으로 인한 핸들링 요청시.
+		var hashes = window.location.href.slice(window.location.href.indexOf('=') + 1).split('&');
+		if(hashes == 'fail_cart_not_login'){
+			alert('로그인후 이용해주세요!');			
 		}
 	}
 	

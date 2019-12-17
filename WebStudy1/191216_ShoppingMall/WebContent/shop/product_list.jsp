@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/css/product.css" />
 <title>Insert title here</title>
-
+<script src="${ pageContext.request.contextPath }/js/httpRequest.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 
 function del(idx) {
@@ -23,6 +24,25 @@ function del(idx) {
 	}
 	
 	location.href='product_delete.do?idx='+idx;
+}
+
+function send_Cart(p_idx, m_idx) {
+	$.ajax({
+		url : 'cart_Insert.do',
+		data : {
+				'p_idx' : p_idx,
+				'm_idx' : m_idx
+			},
+		dataType : 'json',
+		success : function(res_data) {
+			alert('장바구니 담기 완료!');
+		},
+		error : function(error) {
+			alert('에러! : '+error);
+		}
+		
+	});
+	
 }
 
 </script>
@@ -61,9 +81,13 @@ function del(idx) {
 					</td>
 					<td>
 						<fmt:formatNumber value="${ product.p_price }"/>
+						<br>
+						<c:if test="${ not empty user }">
+							<input type="button" class="btn btn-default" value="담기" onclick="send_Cart('${ product.idx }', '${ user.idx }');" />
+						</c:if>
 						
+						<!-- is manager -->
 						<c:if test="${ user.grade == '관리자' }">
-							<br>
 							<input type="button" class="btn btn-warning" value="수정" onclick="location.href='product_modify_form.do?idx='+${product.idx}" />
 							<input type="button" class="btn btn-danger" value="삭제" onclick="del(${product.idx});" />
 						</c:if>

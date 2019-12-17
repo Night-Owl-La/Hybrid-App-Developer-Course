@@ -65,8 +65,14 @@
 						<td>${ fn:substring(member.regdate,0,10) }</td>
 						<td>${ fn:substring(member.modifydate,0,10) }</td>
 						<td>${ member.grade }</td>
-						<td><input type="button" value="수정" class="btn btn-success" onclick="location.href='modify_form.do?idx='+${member.idx}" />
-							<input type="button" value="삭제" class="btn btn-danger" onclick="del(${member.idx});" /></td>
+						<c:if test="${ uesr.grade eq '관리자' }">
+							<td><input type="button" value="수정" class="btn btn-success" onclick="location.href='modify_form.do?idx='+${member.idx}" />
+								<input type="button" value="삭제" class="btn btn-danger" onclick="del(${member.idx});" /></td>
+						</c:if>
+						<c:if test="${ user.grade ne '관리자'  }">
+							<td>
+							</td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</tbody>

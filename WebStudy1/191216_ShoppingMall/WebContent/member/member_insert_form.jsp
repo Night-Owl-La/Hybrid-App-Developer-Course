@@ -101,7 +101,7 @@
 <body>
 	<div class="main_box">
 		<form action="insert.do">
-			<table  class="table table-bordered table-hover member_signup_box">
+			<table class="table table-bordered table-hover member_signup_box">
 				<caption><h1>:::회원가입:::</h1></caption>
 				
 				<tr>

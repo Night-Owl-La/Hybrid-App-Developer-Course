@@ -18,7 +18,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<update id="product_update" parameterType="vo.ProductVo">
-		update product set category=#{category}, p_num=#{p_num}, p_name=#{p_name}, p_company=#{p_company}, p_price=#{p_price}, p_saleprice=#{p_saleprice}, p_content=#{p_content} where idx=#{idx}
+		update product set 
+			category=#{category}, 
+			p_num=#{p_num}, 
+			p_name=#{p_name}, 
+			p_company=#{p_company}, 
+			p_price=#{p_price}, 
+			p_saleprice=#{p_saleprice}, 
+			p_image_s=#{p_image_s}, 
+			p_image_l=#{p_image_l}, 
+			p_content=#{p_content} 
+			
+			where idx=#{idx}
 	</update>
 	
 	<delete id="product_delete" parameterType="int">

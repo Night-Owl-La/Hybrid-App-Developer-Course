@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+	<action name="/visit/list" class="action.visit.Visit_List_Action" />
+	<action name="/visit/modify_form" class="action.visit.Visit_Modify_Form_Action" />
+	<action name="/visit/modify" class="action.visit.Visit_Modify_Action"/>
+	<action name="/visit/insert_form" class="action.visit.Visit_Insert_Form_Action"/>
+	<action name="/visit/insert" class="action.visit.Visit_Insert_Action"/>
+	<action name="/visit/delete" class="action.visit.Visit_Delete_Action"/>
+	<action name="/visit/check_pwd" class="action.visit.Visit_Check_Pwd_Action"/>
+
+</root>

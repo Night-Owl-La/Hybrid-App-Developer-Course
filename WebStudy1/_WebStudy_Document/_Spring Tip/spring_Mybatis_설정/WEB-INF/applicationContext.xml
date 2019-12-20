@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+
+<context:property-placeholder 
+		location="classpath:config/mybatis/db.properties"/>
+
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${username}"/>
+		<property name="password" value="${password}"/>
+		<property name="defaultAutoCommit" value="false"/>
+	</bean>
+	
+	<!-- sqlMapConfig.xml의 역할 담당..
+	     SqlSessionFactory  sqlSessionFactory;  
+	 -->
+	<!-- <bean id="factoryBean" 
+			class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds" />
+		<property name="mapperLocations" 
+			value="classpath*:config/mybatis/mapper/*.xml" />
+	</bean> -->
+	
+	<bean id="factoryBean" 
+	        class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds" />
+		<property name="configLocation" 
+		          value="/WEB-INF/mybatis-config.xml"/>
+	</bean>
+	
+	
+	
+	
+	<!--  SqlSession sqlSession 생성 
+	      SqlSessionTemplate  template;
+	 -->	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="factoryBean" />
+	</bean>
+   
+    <!-- bean등록시 기본설정은  scope="singleton" -->
+    <!-- <bean id="dao"  class="dao.BoardDao">
+    	<property name="sqlMapper"  ref="sqlSession"/>
+    </bean> -->
+   
+   
+   
+    
+    
+</beans>
+
+
+
+
+
+

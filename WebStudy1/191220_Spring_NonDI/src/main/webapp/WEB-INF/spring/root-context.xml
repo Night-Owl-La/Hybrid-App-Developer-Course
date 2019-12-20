@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean id="p1" class="com.night_owl.la.vo.PersonVo">
+		<constructor-arg value="일길동"/>
+		<constructor-arg value="30"/>
+		<constructor-arg value="서울 마포 창천동"/>
+	</bean>
+	
+	<bean id="p2" class="com.night_owl.la.vo.PersonVo">
+		<property name="name" value="이길동"/>
+		<property name="age" value="20"/>
+		<property name="address" value="부산 해운대"/>
+	</bean>
+	
+	<bean id="name_Bean" class="java.lang.String">
+		<constructor-arg value="삼길동"/>
+	</bean>
+	
+	<bean id="age_Bean" class="java.lang.Integer">
+		<constructor-arg value="10"/>
+	</bean>
+	
+	<bean id="address_Bean" class="java.lang.String">
+		<constructor-arg value="서울 마포 연희동"/>
+	</bean>
+	
+	<bean id="p3" class="com.night_owl.la.vo.PersonVo">
+		<constructor-arg ref="name_Bean"/>
+		<constructor-arg ref="age_Bean"/>
+		<constructor-arg ref="address_Bean"/>
+	</bean>
+	
+	<bean id="p4" class="com.night_owl.la.vo.PersonVo">
+		<property name="name" ref="name_Bean"/>
+		<property name="age"  ref="age_Bean"/>
+		<property name="address" ref="address_Bean"/>
+	</bean>
+	
+	<bean id="galaxy_1" class="com.night_owl.la.vo.PersonVo" scope="prototype">
+		<constructor-arg value="Galaxy"/>
+		<constructor-arg value="8"/>
+		<constructor-arg value="SamSung"/>
+	</bean>
+		
+</beans>

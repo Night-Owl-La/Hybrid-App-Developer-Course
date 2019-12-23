@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<bean id="mySet_Bean" class="test_util.MySet">
+		<constructor-arg name="set">
+			<set>
+				<value>apple</value>
+				<value>banana</value>
+				<value>orange</value>
+				<value>tomato</value>
+				<value>mellon</value>
+			</set>
+		</constructor-arg>
+	</bean>
+
+	<bean id="myList_Bean" class="test_util.MyList">
+		<property name="list">
+			<list>
+				<value>Seoul</value>
+				<value>Incheon</value>
+				<value>Daejeon</value>
+				<value>Gwangju</value>
+				<value>Pusan</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="myMap_Bean" class="test_util.MyMap">
+		<property name="map">
+			<map>
+				<entry key="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<entry key="url" value="jdbc:oracle:thin:@localhost:1520:xe" />
+				<entry key="user" value="test" />
+				<entry key="pwd" value="1234" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="myProp_Bean" class="test_util.MyProperty">
+		<property name="prop">
+			<props>
+				<prop key="kr">Korea</prop>
+				<prop key="jp">Japan</prop>
+				<prop key="en">USA</prop>
+				<prop key="ch">China</prop>
+			</props>
+		</property>	
+	</bean>
+
+
+</beans>

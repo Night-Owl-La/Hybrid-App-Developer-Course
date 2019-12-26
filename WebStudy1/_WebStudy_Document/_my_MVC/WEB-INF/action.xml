@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<root>
-	<action name="/test/list" class="action.List_Action" />
-	<action name="/test/view" class="action.View_Action" />
-	<action name="/test/delete" class="action.Delete_Action" />
-	<action name="/test/insert_form" class="action.Insert_Action" />
-
-</root>

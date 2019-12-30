@@ -118,7 +118,7 @@
 				<div id="empty_message">사진이 없습니다.</div>
 			</c:if>
 			<c:forEach var="photo" items="${ list }">
-				<div class="photo_type"">
+				<div class="photo_type">
 					<img src="${ pageContext.request.contextPath }/resources/upload/${ photo.p_filename }" onclick="show_popup('${ photo.p_idx}');" />
 					<div class="subject">${ photo.p_subject }</div>
 					<div class="content">${ photo.p_content }</div>

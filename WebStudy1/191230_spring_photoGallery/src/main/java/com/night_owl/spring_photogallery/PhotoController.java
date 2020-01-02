@@ -42,19 +42,21 @@ public class PhotoController {
 		return "photo/photo_list";
 	}
 
-	@RequestMapping("/photo/photo_one.do")
+	@RequestMapping(value="/photo/photo_one.do", produces="text/plain; charset=utf-8")
 	@ResponseBody
 	public String photoGetOne(Model model) {
 
 		int p_idx = Integer.parseInt(request.getParameter("p_idx"));
 
 		PhotoVo vo = ps.selectOne(p_idx);
+		
+		String p_content = vo.getP_content().replaceAll("\"",  "\'");
 
 		StringBuffer jsonStr_t = new StringBuffer();
 		jsonStr_t.append("{");
 		jsonStr_t.append(String.format("\"p_filename\": \"%s\",", vo.getP_filename()));
 		jsonStr_t.append(String.format("\"p_subject\": \"%s\",", vo.getP_subject()));
-		jsonStr_t.append(String.format("\"p_content\": \"%s\"", vo.getP_content()));
+		jsonStr_t.append(String.format("\"p_content\": \"%s\"", p_content));
 		jsonStr_t.append("}");
 
 		String jsonStr = jsonStr_t.toString();

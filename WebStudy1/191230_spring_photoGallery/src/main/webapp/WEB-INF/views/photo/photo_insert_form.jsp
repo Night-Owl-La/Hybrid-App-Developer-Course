@@ -10,14 +10,17 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="${ pageContext.request.contextPath }/js/httpRequest.js"></script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://cdn.ckeditor.com/4.13.1/full/ckeditor.js"></script>
 <script type="text/javascript">
 	function send(form) {
+		
+		var p_content = CKEDITOR.instances.p_content.getData();
 
 		if (form.p_subject.value == '') {
 			alert('제목을 입력하세요.');
 			return;
 		}
-		if (form.p_content.value == '') {
+		if (p_content == '') {
 			alert('내용을 입력하세요.');
 			return;
 		}
@@ -47,6 +50,48 @@
 					<th>내용</th>
 					<td>
 						<textarea name="p_content" row="5" cols"50" style="width: 100%; resize: none;"></textarea>
+						<script>
+							// Replace the <textarea id="editor1"> with a CKEditor instance, using default configuration.
+							CKEDITOR.replace('p_content', {
+								filebrowserUploadUrl: '${pageContext.request.contextPath}/ckeditorImageUpload.do',
+								enterMode: CKEDITOR.ENTER_BR,
+								shiftEnterMode: CKEDITOR.ENTER_P,
+								toolbarGroups: [
+									/*
+										{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+										{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+										{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker' ] },
+										{ name: 'forms' },
+										'/',*/
+						
+									{	name: 'document', groups: ['mode', 'document', 'doctools'] },
+									{ name: 'basicstyles', groups: ['basicstyles', 'cleanup'] },
+									{ name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi'] },
+									{ name: 'links' },
+									{ name: 'insert' },
+									'/',
+									{ name: 'styles' },
+									{ name: 'colors' },
+									{ name: 'tools' },
+									{ name: 'others' },
+									{ name: 'about' }
+								]
+							});
+						
+							//이미지 업로드
+							CKEDITOR.on('dialogDefinition', function (ev) {
+								var dialogName = ev.data.name;
+								var dialogDefinition = ev.data.definition;
+						
+								switch (dialogName) {
+									case 'image': //Image Properties dialog
+										//dialogDefinition.removeContents('info');
+										dialogDefinition.removeContents('Link');
+										dialogDefinition.removeContents('advanced');
+										break;
+								}
+							});
+						</script>
 					</td>
 				</tr>
 				<tr>

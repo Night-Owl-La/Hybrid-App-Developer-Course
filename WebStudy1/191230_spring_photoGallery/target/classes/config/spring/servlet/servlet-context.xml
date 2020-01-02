@@ -36,5 +36,6 @@
 	</beans:bean>
 	
 	<beans:bean class="com.night_owl.spring_photogallery.PhotoController" />
+	<beans:bean class="com.night_owl.spring_photogallery.CKEditor_ImageUploadController" />
 
 </beans:beans>

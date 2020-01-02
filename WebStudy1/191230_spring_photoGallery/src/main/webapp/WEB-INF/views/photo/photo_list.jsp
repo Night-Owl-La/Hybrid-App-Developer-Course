@@ -43,7 +43,7 @@
 			data : {'p_idx' : p_idx},
 			dataType : 'json',
 			success : function(res_data) {
-				$("#pop_p_file").attr("src", "${pageContext.request.contextPath}/upload/"+res_data.p_filename);
+				$("#pop_p_file").attr("src", "${pageContext.request.contextPath}/resources/upload/"+res_data.p_filename);
 				$("#pop_p_file").attr("width", "298px");
 				$("#pop_p_file").attr("height", "298px");
 				$("#pop_p_subject").html("파일명 : "+res_data.p_subject);

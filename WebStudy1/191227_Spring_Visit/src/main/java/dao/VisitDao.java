@@ -4,19 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import vo.VisitVo;
 
+@Repository("visit_dao")
 public class VisitDao {
+	
+	@Autowired
 	SqlSession sqlSession;
-
-	public SqlSession getSqlSession() {
-		return sqlSession;
-	}
-
-	public void setSqlSession(SqlSession sqlSession) {
-		this.sqlSession = sqlSession;
-	}
 
 	public List<VisitVo> selectList() {
 		List<VisitVo> list = null;
@@ -35,20 +32,17 @@ public class VisitDao {
 	}
 
 	public int insert(VisitVo vo) {
-		int res = 0;
-		sqlSession.insert("visit.visit_insert", vo);
+		int res = sqlSession.insert("visit.visit_insert", vo);
 		return res;
 	}
 
 	public int update(VisitVo vo) {
-		int res = 0;
-		sqlSession.update("visit.visit_update", vo);
+		int res = sqlSession.update("visit.visit_update", vo);
 		return res;
 	}
 
 	public int delete(int idx) {
-		int res = 0;
-		sqlSession.delete("visit.visit_delete", idx);
+		int res = sqlSession.delete("visit.visit_delete", idx);
 		return res;
 	}
 

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,15 +18,8 @@ import vo.VisitVo;
 @Controller
 public class VisitController {
 
+	@Autowired
 	VisitService vs = null;
-
-	public VisitService getVs() {
-		return vs;
-	}
-
-	public void setVs(VisitService vs) {
-		this.vs = vs;
-	}
 
 	@RequestMapping("/visit/list.do")
 	public String list(String search, String search_text, Model model) {

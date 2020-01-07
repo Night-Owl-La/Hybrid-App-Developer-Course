@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product_remain">
+	<select id="product_list" resultType="product">
+		select * from product_remain order by idx
+	</select>
+	
+	<select id="product_one_idx" parameterType="int" resultType="product">
+		select * from product_remain where idx=#{ idx }
+	</select>
+	
+	<select id="product_one_name" parameterType="String" resultType="product">
+		select * from product_remain where name=#{ name }
+	</select>
+	
+	<insert id="product_insert" parameterType="product">
+		insert into product_remain values(seq_product_remain_idx.nextVal, #{ name }, #{ cnt }, sysdate )
+	</insert>
+	
+	<update id="product_update" parameterType="product">
+		update product_remain set name=#{ name }, cnt=#{ cnt }, regdate=sysdate where idx=#{ idx }
+	</update>
+	
+	<delete id="product_delete" parameterType="int">
+		delete from product_remain where idx=#{ idx }	
+	</delete>
+	
+	<delete id="product_delete_name" parameterType="String">
+		delete from product_remain where name=#{ name }
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

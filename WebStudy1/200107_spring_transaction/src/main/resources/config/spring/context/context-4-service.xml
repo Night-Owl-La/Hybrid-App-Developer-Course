@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="product_Service" class="service.product_service.ProductService_Impl">
+		<property name="product_In_Dao" ref="product_In_Dao" />
+		<property name="product_Out_Dao" ref="product_Out_Dao" />
+		<property name="product_Remain_Dao" ref="product_Remain_Dao" />
+	</bean> 
+
+</beans>

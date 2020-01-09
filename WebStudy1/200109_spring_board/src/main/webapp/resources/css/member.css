@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html, body{
+	width: 100%;
+	body: 100%;
+}
+
+h1 {
+	text-align: center;
+	
+}
+
+.list_main_box{
+	position: absolute;
+	width: 1000px;
+	height: 1000px;
+	left: 40%;
+	top: 10%;
+	margin-left: -300px;
+	text-align: center;
+}
+
+.main_box{
+	position: absolute;
+	width: 1000px;
+	height: 1000px;
+	left: 50%;
+	top: 10%;
+	margin-left: -250px;
+	padding: 20px;
+	text-align: center;
+}
+
+.member_table_box {
+	width: 1000px;
+	text-align: center;
+}
+
+.member_signup_box{
+	width: 400px;
+	text-align: center;	
+}
+
+.member_modify_box{
+	width: 450px;
+	text-align: center;
+}
+
+.member_modify_box  tr  th {
+	width: 150px;
+}
+
+th {
+	text-align: center;
+}
+
+td{
+	text-align: left;
+}

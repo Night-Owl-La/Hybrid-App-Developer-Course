@@ -44,14 +44,28 @@ public class BoardDao_Impl implements BoardDao {
 	}
 
 	@Override
+	public int insert_Reply(BoardVo vo) {
+		return sqlSession.insert("board.board_Insert_Reply", vo);
+	}
+
+	@Override
 	public int update(BoardVo vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update("board.board_Update", vo);
+	}
+
+	@Override
+	public int update_Step(BoardVo baseVo) {
+		return sqlSession.update("board.board_Update_Step", baseVo);
 	}
 
 	@Override
 	public int update_ViewCount(BoardVo vo) {
 		return sqlSession.update("board.board_Update_ViewCount", vo);
+	}
+
+	@Override
+	public int update_User_YN(int board_idx) {
+		return sqlSession.update("board.board_Update_use_yn", board_idx);
 	}
 
 	@Override

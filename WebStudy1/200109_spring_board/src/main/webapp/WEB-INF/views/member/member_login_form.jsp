@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/member.css" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="${ pageContext.request.contextPath }/js/httpRequest.js"></script>
 <script type="text/javascript">
 	
 	window.onload = function() {
@@ -37,14 +36,15 @@
 			alert('비밀번호를 입력하세요.');
 			return;
 		}
-
+		
 		form.submit();
 	}
 </script>
 </head>
 <body>
-	<div class="main_box">
+	<div class="main_box">t
 		<form action="login.do">
+			<input type="hidden" name="url" value="${ param.url }" />
 			<table  class="table table-bordered table-hover member_signup_box">
 				<caption><h1>:::로그인:::</h1></caption>
 				

@@ -42,14 +42,28 @@ public class BoardService_Impl implements BoardService {
 	}
 
 	@Override
+	public int insert_Reply(BoardVo vo) {
+		return boardDao.insert_Reply(vo);
+	}
+
+	@Override
 	public int update(BoardVo vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return boardDao.update(vo);
+	}
+
+	@Override
+	public int update_Step(BoardVo baseVo) {
+		return boardDao.update_Step(baseVo);
 	}
 
 	@Override
 	public int update_ViewCount(BoardVo vo) {
 		return boardDao.update_ViewCount(vo);
+	}
+
+	@Override
+	public int update_Use_YN(int board_idx) {
+		return boardDao.update_User_YN(board_idx);
 	}
 
 	@Override

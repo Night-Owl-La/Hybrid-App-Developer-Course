@@ -14,5 +14,8 @@ public interface BoardDao {
 	int update(BoardVo vo);
 	int update_ViewCount(BoardVo vo);
 	int delete(int idx);
+	int update_Step(BoardVo baseVo);
+	int insert_Reply(BoardVo vo);
+	int update_User_YN(int board_idx);
 }
 

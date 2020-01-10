@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from board where board_idx = #{ board_idx }
 	</select>
 	
+	<!-- 새글쓰기 -->
 	<insert id="board_Insert" parameterType="vo.BoardVo">
 		insert into board values( 
 			seq_board_idx.nextVal, 
@@ -21,6 +22,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			0,
 			'y',
 			seq_board_idx.currVal,
+			0,
+			0,
+			#{ user_idx },
+			#{ user_name }
+			)
+	</insert>
+	
+	<!-- 답글쓰기 -->
+	<insert id="board_Insert_Reply" parameterType="vo.BoardVo">
+		insert into board values( 
+			seq_board_idx.nextVal, 
+			#{ board_title },
+			#{ board_content },
+			#{ board_ip },
+			sysdate,
+			0,
+			'y',
+			#{ reference_idx },
 			#{ reference_depth },
 			#{ reference_step },
 			#{ user_idx },
@@ -28,9 +47,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			)
 	</insert>
 	
-	<update id="board_Update_ViewCount" parameterType="vo.BoardVo">
-		update board set board_view_count= #{ board_view_count } where board_idx = #{ board_idx }
+	<update id="board_Update" parameterType="vo.BoardVo">
+		update board set board_title = #{ board_title }, board_content = #{ board_content } where board_idx = #{ board_idx }
 	</update>
+	
+	<update id="board_Update_ViewCount" parameterType="vo.BoardVo">
+		update board set board_view_count= #{ board_view_count } +1 where board_idx = #{ board_idx }
+	</update>
+	
+	<update id="board_Update_Step" parameterType="vo.BoardVo">
+		update board set reference_step = reference_step + 1 
+			where reference_idx = #{ reference_idx } and reference_step > #{ reference_step }
+	</update>
+	
+	<update id="board_Update_use_yn" parameterType="int">
+		update board set board_use_yn = 'n' where board_idx = #{ board_idx } 
+	</update>
+	
+	
 </mapper>
 
 

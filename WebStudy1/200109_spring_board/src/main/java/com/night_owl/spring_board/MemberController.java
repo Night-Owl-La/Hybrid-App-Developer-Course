@@ -43,6 +43,7 @@ public class MemberController {
 	public String memberLogin(Model model) {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
+		String url = request.getParameter("url");
 
 		MemberVo user = memberService.selectOne(id);
 		if (user == null) {
@@ -57,6 +58,9 @@ public class MemberController {
 
 		// 세션 생성.
 		session.setAttribute("user", user);
+		
+		//돌아갈 url이 존재하면
+		if(!url.isEmpty()) return "redirect:"+url;
 
 		return "redirect:/board/list.do";
 	}

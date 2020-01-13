@@ -98,4 +98,15 @@ insert into board values(
 	'한길동'
 );
 
+-- paging 처리.
+select * 
+from(
+	select rank() over(order by reference_idx desc, reference_step asc) no, b.*
+	from (select * from board order by reference_idx desc, reference_step asc) b
+)
+where no between 1 and 5;
+
+-- 전체 게시물 수.
+select nvl(count(*), 0) from board;
+
 commit

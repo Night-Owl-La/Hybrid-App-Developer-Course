@@ -27,8 +27,12 @@ public class BoardService_Impl implements BoardService {
 
 	@Override
 	public List<BoardVo> selectList(Map map) {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDao.selectList(map);
+	}
+	
+	@Override
+	public int selectRowTotal(Map map) {
+		return boardDao.selectRowTotal(map);
 	}
 
 	@Override

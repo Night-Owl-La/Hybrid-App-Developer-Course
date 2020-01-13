@@ -46,9 +46,10 @@
 		</tr>
 		<tr>
 			<td>
-				<form method="post" action="reply.do">
+				<form method="post" action="reply.do?page=${ param.page }&search=${ param.search}&search_text=${ param.search_text }">
 					<input type="hidden" name="user_idx" value="${ user.idx }"/>
 					<input type="hidden" name="board_idx" value="${ param.board_idx }"/>
+					<input type="hidden" name="page" value="${ param.page }"/>
 					<table width="750" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="120" height="25" class="td_d">제목</td>
@@ -161,7 +162,7 @@
 						<tr>
 							<td align="center">
 								<input type="image" src="${ pageContext.request.contextPath }/resources/img/btn_reg.gif" onClick="send(this.form); return false;" style="cursor: hand"> 
-								<img src="${ pageContext.request.contextPath }/resources/img/btn_back.gif" onClick="location.href='list.do'" style="cursor: hand">
+								<img src="${ pageContext.request.contextPath }/resources/img/btn_back.gif" onClick="location.href='list.do?page=${ param.page}&search=${ param.search}&search_text=${ param.search_text }'" style="cursor: hand">
 							</td>
 						</tr>
 					</table>

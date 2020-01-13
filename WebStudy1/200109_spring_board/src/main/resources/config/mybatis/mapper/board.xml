@@ -11,6 +11,46 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from board where board_idx = #{ board_idx }
 	</select>
 	
+	<!-- 조건별 처리 -->
+	<select id="board_Condition_List" parameterType="Map" resultType="vo.BoardVo">
+		select * 
+			from(
+				select rank() over(order by reference_idx desc, reference_step asc) no, b.*
+				from (
+						select * from board
+						<trim prefix="where" prefixOverrides="or">
+							<if test="title != null">
+								board_title like '%' || #{ title } || '%'
+							</if>
+							<if test="name != null">
+								or user_name like '%' || #{ name } || '%'
+							</if>
+							<if test="content != null">
+								or board_content like '%' || #{ content } || '%'
+							</if>
+						</trim>
+						) b
+			)
+		where no between #{ start } and #{ end }
+	</select>
+	
+	<!-- rowTotal count -->
+	<select id="board_RowTotal_List" parameterType="Map" resultType="int">
+		select nvl(count(*), 0) from board
+		
+		<trim prefix="where" prefixOverrides="or">
+			<if test="title != null">
+				board_title like '%' || #{ title } || '%'
+			</if>
+			<if test="name != null">
+				or user_name like '%' || #{ name } || '%'
+			</if>
+			<if test="content != null">
+				or board_content like '%' || #{ content } || '%'
+			</if>
+		</trim>
+	</select>
+	
 	<!-- 새글쓰기 -->
 	<insert id="board_Insert" parameterType="vo.BoardVo">
 		insert into board values( 

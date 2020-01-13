@@ -9,6 +9,7 @@ public interface BoardService {
 	List<BoardVo> selectList();
 	List<BoardVo> selectList(Map map);
 	BoardVo selectOne(int idx);
+	int selectRowTotal(Map map);
 	
 	int insert(BoardVo vo);
 	int update(BoardVo vo);

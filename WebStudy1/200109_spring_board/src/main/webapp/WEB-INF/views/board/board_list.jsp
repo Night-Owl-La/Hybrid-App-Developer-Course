@@ -73,7 +73,7 @@
 												
 												<!-- 사용중인 게시물이면 -->
 												<c:if test="${ vo.board_use_yn eq 'y' }">
-													<a href="view.do?idx=${ vo.board_idx }"	class="num">${ vo.board_title }</a>
+													<a href="view.do?idx=${ vo.board_idx }&page=${ (empty param.page) ? 1: param.page }&search=${ param.search}&search_text=${ param.search_text }" class="num">${ vo.board_title }</a>
 												</c:if>
 												
 												<!-- 사용하지 않는 게시물이면 -->
@@ -112,17 +112,27 @@
 					</tr>
 					<tr>
 						<td>
-							<table width="690" border="0" cellpadding="0" cellspacing="0"
-								bgcolor="#F1F5F4">
+							<table width="690" border="0" cellpadding="0" cellspacing="0" bgcolor="#F1F5F4">
+								<!-- Search Menu -->
+								<tr style="text-align: center;">
+									<td width="7"><img src="${ pageContext.request.contextPath }/resources/img/search_bg_01.gif"></td>
+									<td class="f11">
+									<select id="search">
+										<option value="all">전체</option>
+										<option value="title">제목</option>
+										<option value="name">이름</option>
+										<option value="content">내용</option>
+										<option value="title_name_content">제목+이름+내용</option>
+									</select>
+									<input id="search_text" value="${ param.search_text }" />
+									<input type="button" value="검색" onclick="search();"/>
+									</td>
+								</tr>
+								<!-- Paging Menu -->
 								<tr>
 									<td width="7"><img src="${ pageContext.request.contextPath }/resources/img/search_bg_01.gif"></td>
 									<td class="f11">
-										<a href="board_list.jsp?page=">
-											<img src="${ pageContext.request.contextPath }/resources/img/btn_prev.gif" align="absmiddle">
-										</a> 
-										<a href="board_list.jsp?page=">
-											<img src="${ pageContext.request.contextPath }/resources/img/btn_next.gif" align="absmiddle">
-										</a>
+									${ pageMenu }
 									</td>
 								</tr>
 							</table>
@@ -141,7 +151,21 @@
 	</table>
 </body>
 
+<!-- Script -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript">
+	
+	$(function() {
+		if("${param.search eq 'title'}" =="true"){
+			$("#search").children().eq(1).attr('selected',true);	
+		}else if("${param.search eq 'name'}" =="true"){
+			$("#search").children().eq(2).attr('selected',true);	
+		}else if("${param.search eq 'content'}" =="true"){
+			$("#search").children().eq(3).attr('selected',true);	
+		}else if("${param.search eq 'title_name_content'}" =="true"){
+			$("#search").children().eq(4).attr('selected',true);	
+		} 
+	});
 
 	function insert_form() {
 		if("${ empty user}"=='true'){
@@ -152,8 +176,22 @@
 		
 		location.href='board_insert_form.do';
 	}
-
-
+	
+	function search() {
+		var search = $('#search').val();
+		var search_text =$('#search_text').val().trim();
+		
+		// 전체검색이 아닐 경우.
+		if(search != 'all' && search_text==''){
+			$('#search_text').val('');
+			$('#search_text').focus();
+			return;
+		}
+		
+		if(search=='all') search_text='';
+		
+		location.href='list.do?search=' + search + '&search_text=' + encodeURIComponent(search_text);
+	}
+	
 </script>
-
 </html>

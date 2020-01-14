@@ -42,7 +42,7 @@
 </script>
 </head>
 <body>
-	<div class="main_box">t
+	<div class="main_box">
 		<form action="login.do">
 			<input type="hidden" name="url" value="${ param.url }" />
 			<table  class="table table-bordered table-hover member_signup_box">

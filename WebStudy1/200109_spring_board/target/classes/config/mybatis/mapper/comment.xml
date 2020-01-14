@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comment">
+	<select id="comment_List" parameterType="int" resultType="vo.CommentVo">
+		select * from comment_tb where board_idx=#{ board_idx } order by comment_idx desc
+	</select>
+	
+	<select id="comment_Total_List" parameterType="int" resultType="int">
+		select nvl(count(*), 0) from comment_tb where board_idx = #{ board_idx }
+	</select>
+	
+	<select id="comment_RowTotal_List" parameterType="Map" resultType="vo.CommentVo">
+		select *
+		from(
+			select rank() over(order by comment_idx) no, b.*
+			from ( select * from comment_tb where board_idx = #{ board_idx }) b
+		)
+		where no between #{ start } and #{ end }
+	</select>
+	
+	<!-- 댓글 추가. -->
+	<insert id="comment_Insert" parameterType="vo.CommentVo">
+		insert into comment_tb values( seq_comment_idx.nextVal, #{ comment_content }, #{ comment_ip }, sysdate, #{ user_idx }, #{ user_name }, #{ board_idx } )
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="comment_Delete" parameterType="int">
+		delete from comment_tb where comment_idx = #{ comment_idx }
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

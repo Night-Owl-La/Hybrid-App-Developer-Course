@@ -512,9 +512,9 @@
 											"font": "Arial;13;1",
 											"left": 448,
 											"top": 445,
-											"width": 133.3017578125,
+											"width": 160.0380859375,
 											"height": 13,
-											"text": "reply"
+											"text": "comment_tb"
 										},
 										{
 											"_type": "ERDColumnCompartmentView",
@@ -538,7 +538,7 @@
 													"font": "Arial;13;0",
 													"left": 453,
 													"top": 468,
-													"width": 123.3017578125,
+													"width": 150.0380859375,
 													"height": 13
 												},
 												{
@@ -553,7 +553,7 @@
 													"font": "Arial;13;0",
 													"left": 453,
 													"top": 483,
-													"width": 123.3017578125,
+													"width": 150.0380859375,
 													"height": 13
 												},
 												{
@@ -568,7 +568,22 @@
 													"font": "Arial;13;0",
 													"left": 453,
 													"top": 498,
-													"width": 123.3017578125,
+													"width": 150.0380859375,
+													"height": 13
+												},
+												{
+													"_type": "ERDColumnView",
+													"_id": "AAAAAAFvoaN2oCZc2jc=",
+													"_parent": {
+														"$ref": "AAAAAAFvh/wxgtu/EQ8="
+													},
+													"model": {
+														"$ref": "AAAAAAFvoaN2XyZZnqs="
+													},
+													"font": "Arial;13;0",
+													"left": 453,
+													"top": 513,
+													"width": 150.0380859375,
 													"height": 13
 												},
 												{
@@ -582,8 +597,8 @@
 													},
 													"font": "Arial;13;0",
 													"left": 453,
-													"top": 513,
-													"width": 123.3017578125,
+													"top": 528,
+													"width": 150.0380859375,
 													"height": 13
 												},
 												{
@@ -597,8 +612,8 @@
 													},
 													"font": "Arial;13;0",
 													"left": 453,
-													"top": 528,
-													"width": 123.3017578125,
+													"top": 543,
+													"width": 150.0380859375,
 													"height": 13
 												},
 												{
@@ -612,23 +627,23 @@
 													},
 													"font": "Arial;13;0",
 													"left": 453,
-													"top": 543,
-													"width": 123.3017578125,
+													"top": 558,
+													"width": 150.0380859375,
 													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 448,
 											"top": 463,
-											"width": 133.3017578125,
-											"height": 98
+											"width": 160.0380859375,
+											"height": 113
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 448,
 									"top": 440,
-									"width": 133.3017578125,
-									"height": 121,
+									"width": 160.0380859375,
+									"height": 136,
 									"nameLabel": {
 										"$ref": "AAAAAAFvh/wxgtu+Fqg="
 									},
@@ -752,7 +767,7 @@
 												"$ref": "AAAAAAFvh/2jIdv7LO0="
 											},
 											"font": "Arial;13;0",
-											"left": 605,
+											"left": 632,
 											"top": 471,
 											"height": 13,
 											"alpha": 0.5235987755982988,
@@ -787,7 +802,7 @@
 										"$ref": "AAAAAAFvh/wxgtu9NFI="
 									},
 									"lineStyle": 2,
-									"points": "580:492;784:492;784:354",
+									"points": "607:492;784:492;784:354",
 									"nameLabel": {
 										"$ref": "AAAAAAFvh/2jIdv8CME="
 									},
@@ -1060,7 +1075,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFvh/Bi/9rvRio="
 							},
-							"name": "reply",
+							"name": "comment_tb",
 							"ownedElements": [
 								{
 									"_type": "ERDRelationship",
@@ -1098,7 +1113,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFvh/wxgtu7xak="
 									},
-									"name": "reply_idx",
+									"name": "comment_idx",
 									"length": 0,
 									"primaryKey": true
 								},
@@ -1108,7 +1123,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFvh/wxgtu7xak="
 									},
-									"name": "reply_content",
+									"name": "comment_content",
 									"length": 0
 								},
 								{
@@ -1117,7 +1132,16 @@
 									"_parent": {
 										"$ref": "AAAAAAFvh/wxgtu7xak="
 									},
-									"name": "reply_ip",
+									"name": "comment_ip",
+									"length": 0
+								},
+								{
+									"_type": "ERDColumn",
+									"_id": "AAAAAAFvoaN2XyZZnqs=",
+									"_parent": {
+										"$ref": "AAAAAAFvh/wxgtu7xak="
+									},
+									"name": "comment_regdate",
 									"length": 0
 								},
 								{

@@ -16,3 +16,9 @@ col board_ip format a20;
 col board_regdate format a20;
 col board_use_yn format a20;
 col user_name format a15;
+
+-- comment table config.
+col comment_content format a50;
+col comment_ip format a30;
+col comment_regdate format a30;
+col user_name format a30;

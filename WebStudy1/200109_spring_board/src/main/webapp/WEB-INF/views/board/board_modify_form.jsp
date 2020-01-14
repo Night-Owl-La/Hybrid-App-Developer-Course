@@ -161,7 +161,7 @@
 						<tr>
 							<td align="center">
 								<input type="image" src="${ pageContext.request.contextPath }/resources/img/btn_reg.gif" onClick="send(this.form); return false;" style="cursor: hand"> 
-								<img src="${ pageContext.request.contextPath }/resources/img/btn_back.gif" onClick="location.href='list.do?page=${ param.page}'" style="cursor: hand">
+								<img src="${ pageContext.request.contextPath }/resources/img/btn_back.gif" onClick="location.href='list.do?page=${ param.page }&search=${ param.search }&search_text=${ param.search_text }'" style="cursor: hand">
 							</td>
 						</tr>
 					</table>

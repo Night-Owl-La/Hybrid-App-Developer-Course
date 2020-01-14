@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import service.BoardService;
+import service.CommentService;
 import util.MyConstant;
 import util.Paging;
 import vo.BoardVo;
@@ -22,7 +23,10 @@ public class BoardController {
 
 	@Autowired
 	BoardService boardService;
-
+	
+	@Autowired
+	CommentService commentService;
+	
 	@Autowired
 	HttpServletRequest request;
 
@@ -77,6 +81,12 @@ public class BoardController {
 
 		// get list.
 		List<BoardVo> list = boardService.selectList(map);
+		
+		// get comment count.
+		for (BoardVo boardVo : list) {
+			int comment_count = commentService.selectRowTotal(boardVo.getBoard_idx());
+			boardVo.setComment_count(comment_count);
+		}
 		
 		model.addAttribute("pageMenu", pageMenu);
 		model.addAttribute("list", list);

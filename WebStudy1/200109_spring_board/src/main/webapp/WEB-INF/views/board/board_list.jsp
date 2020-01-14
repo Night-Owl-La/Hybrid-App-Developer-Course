@@ -73,7 +73,10 @@
 												
 												<!-- 사용중인 게시물이면 -->
 												<c:if test="${ vo.board_use_yn eq 'y' }">
-													<a href="view.do?idx=${ vo.board_idx }&page=${ (empty param.page) ? 1: param.page }&search=${ param.search}&search_text=${ param.search_text }" class="num">${ vo.board_title }</a>
+													<a href="view.do?idx=${ vo.board_idx }&page=${ (empty param.page) ? 1: param.page }&search=${ param.search}&search_text=${ param.search_text }" class="num">
+														${ vo.board_title }
+														(${ vo.comment_count })
+													</a>
 												</c:if>
 												
 												<!-- 사용하지 않는 게시물이면 -->

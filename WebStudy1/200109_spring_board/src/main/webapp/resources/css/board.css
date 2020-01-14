@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+#wrap_board{
+	width: 1280px;
+	margin: 0 auto;
+}
+
+#wrap_board *{
+	margin: 0 auto;
+}

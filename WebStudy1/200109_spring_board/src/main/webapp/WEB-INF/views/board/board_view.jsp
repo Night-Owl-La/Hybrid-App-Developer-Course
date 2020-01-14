@@ -4,57 +4,63 @@
 <HTML>
 <HEAD>
 <link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="${ pageContext.request.contextPath }/resources/css/board.css" type="text/css">
 </HEAD>
 
 <BODY>
-	<table width="690" height="50" border="0" cellpadding="0"
-		cellspacing="0">
-		<tr>
-			<td><img
-				src="${ pageContext.request.contextPath }/resources/img/title_04.gif"></td>
-		</tr>
-	</table>
-
-	<table width="690" border="0" cellspacing="0" cellpadding="0">
-		<tr>
-			<td width="120" height="25" class="td_d">제목</td>
-			<td class="td_d_1">${ vo.board_idx }</td>
-		</tr>
-		<tr>
-			<td width="120" height="25" class="td_d_4">작성자</td>
-			<td class="td_d_2">${ vo.user_name }</td>
-		</tr>
-		<tr>
-			<td width="120" height="25" class="td_d_4">작성일</td>
-			<td class="td_d_2">${ vo.board_regdate }</td>
-		</tr>
-		<tr>
-			<td width="120" class="td_d_4">내용</td>
-			<td class="td_d_3" width="570"
-				style="word-wrap: break-word; word-break: break-all"><pre>${ vo.board_content }</pre>
-			</td>
-		</tr>
-	</table>
-
-	<table width="690" border="0" cellspacing="0" cellpadding="0">
-		<tr>
-			<td height="5"></td>
-		</tr>
-		<tr>
-			<td>
-				<img src="${ pageContext.request.contextPath }/resources/img/btn_list.gif" onClick="location.href='list.do?page=${ param.page }&search=${ param.search}&search_text=${ param.search_text }'" style="cursor: hand">
-				<c:if test="${ vo.reference_depth eq 0 }"> 
-					<img src="${ pageContext.request.contextPath }/resources/img/btn_reply.gif" onClick="reply()" style="cursor: hand">
-				</c:if>
-				<!-- 수정이나 삭제 권한은 글쓴이나 관리자만 가집니다. -->
-				<c:if test="${ user.idx eq vo.user_idx or user.grade eq '관리자' }">
-					<img src="${ pageContext.request.contextPath }/resources/img/btn_modify.gif" onClick="modify()" style="cursor: hand"> 
-					<img src='${ pageContext.request.contextPath }/resources/img/btn_delete.gif' onClick='del()' style='cursor: hand'>
-				</c:if>
-			</td>
-		</tr>
-	</table>
-	<br>
+	<div id="wrap_board">
+		<table width="690" height="50" border="0" cellpadding="0"
+			cellspacing="0">
+			<tr>
+				<td><img
+					src="${ pageContext.request.contextPath }/resources/img/title_04.gif"></td>
+			</tr>
+		</table>
+	
+		<table width="690" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="120" height="25" class="td_d">제목</td>
+				<td class="td_d_1">${ vo.board_idx }</td>
+			</tr>
+			<tr>
+				<td width="120" height="25" class="td_d_4">작성자</td>
+				<td class="td_d_2">${ vo.user_name }</td>
+			</tr>
+			<tr>
+				<td width="120" height="25" class="td_d_4">작성일</td>
+				<td class="td_d_2">${ vo.board_regdate }</td>
+			</tr>
+			<tr>
+				<td width="120" class="td_d_4">내용</td>
+				<td class="td_d_3" width="570"
+					style="word-wrap: break-word; word-break: break-all"><pre>${ vo.board_content }</pre>
+				</td>
+			</tr>
+		</table>
+	
+		<table width="690" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td height="5"></td>
+			</tr>
+			<tr>
+				<td>
+					<img src="${ pageContext.request.contextPath }/resources/img/btn_list.gif" onClick="location.href='list.do?page=${ param.page }&search=${ param.search}&search_text=${ param.search_text }'" style="cursor: hand">
+					<c:if test="${ vo.reference_depth eq 0 }"> 
+						<img src="${ pageContext.request.contextPath }/resources/img/btn_reply.gif" onClick="reply()" style="cursor: hand">
+					</c:if>
+					<!-- 수정이나 삭제 권한은 글쓴이나 관리자만 가집니다. -->
+					<c:if test="${ user.idx eq vo.user_idx or user.grade eq '관리자' }">
+						<img src="${ pageContext.request.contextPath }/resources/img/btn_modify.gif" onClick="modify()" style="cursor: hand"> 
+						<img src='${ pageContext.request.contextPath }/resources/img/btn_delete.gif' onClick='del()' style='cursor: hand'>
+					</c:if>
+				</td>
+			</tr>
+		</table>
+		<br>
+		
+		<!-- 댓글등록 폼 -->
+		<%@include file="board_comment_form.jsp" %>
+	</div>
 </BODY>
 
 <script language="JavaScript">

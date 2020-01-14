@@ -13,17 +13,20 @@ public class BoardVo {
 
 	// 참조글 정보.
 	int reference_idx; // 참조중인 게시글의 idx.
-	int reference_depth; //세로 깊이 [삽입 위치에 따라 변함].
-	int reference_step; //답변 순번 [일정하게 증가].
+	int reference_depth; // 세로 깊이 [삽입 위치에 따라 변함].
+	int reference_step; // 답변 순번 [일정하게 증가].
 
 	// 사용자 정보,
 	int user_idx;
 	String user_name;
 
+	// 댓글 정보.
+	int comment_count;
+
 	public BoardVo() {
 	}
 
-	//삽입용
+	// 삽입용
 	public BoardVo(String board_title, String board_content, String board_ip, int user_idx, String user_name) {
 		this.board_title = board_title;
 		this.board_content = board_content;
@@ -31,8 +34,8 @@ public class BoardVo {
 		this.user_idx = user_idx;
 		this.user_name = user_name;
 	}
-	
-	//수정용
+
+	// 수정용
 	public BoardVo(int board_idx, String board_title, String board_content, String board_ip) {
 		this.board_idx = board_idx;
 		this.board_title = board_title;
@@ -134,6 +137,14 @@ public class BoardVo {
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
+	}
+
+	public int getComment_count() {
+		return comment_count;
+	}
+
+	public void setComment_count(int comment_count) {
+		this.comment_count = comment_count;
 	}
 
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- RMI Service를 수행하는 객체 생성 -->
+	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+		<property name="serviceName"><value>DeptDao</value></property>
+		<property name="service"><ref bean="deptDao"/></property>
+		<property name="serviceInterface"><value>dao.DeptDao</value></property>
+		<!-- defaults to 1099 -->
+		<property name="registryPort"><value>1199</value></property>
+	</bean>
+
+</beans>

@@ -48,7 +48,7 @@ public class CommentController {
 		List<CommentVo> list = commentService.selectList(searchOption_Map);
 		
 		// -- binding. --
-		model.addAttribute("pageMenu", pageMenu);
+		if(rowTotal>0) model.addAttribute("pageMenu", pageMenu);
 		model.addAttribute("list", list);
 		return "board/board_comment_list";
 	}
